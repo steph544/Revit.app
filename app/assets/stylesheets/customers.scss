@@ -1,0 +1,204 @@
+// Place all the styles related to the customers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.customer_list {
+    text-align: left;
+    width: 250px;
+    position: relative;
+    top: 10px;
+    margin-left: 50px;
+    margin-right: 30px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.new_customer {
+    text-align: left;
+    width: 500px;
+    position: absolute;
+    bottom: 1050px;
+    margin-left: 300px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: uppercase;
+    display: inline-block;
+    color: darkslategrey;
+}
+
+.circular{
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    float: center;
+}
+
+.name_style {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    padding-left: 80px;
+    text-transform: uppercase;
+}
+
+.link {
+    color: darkslategrey;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
+    text-decoration: none;
+    margin:1px;
+}
+
+.font {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+link:hover {
+    color: rgb(230, 171, 22);
+  }
+
+  .style{
+      margin-left: 44%;
+      text-transform: uppercase;
+      margin-right: 0px;
+      font-weight: 500;
+      font-size: 25px;
+  }
+
+  .information{
+      margin-top: 10px;
+      margin-left: 35%;
+      line-height: 2;
+  }
+
+  .show-image {
+      margin-top: 80px;
+      margin-left: 20%;
+      margin-right: 75px;
+      margin-bottom: 0;
+      height: 200px;
+      width: 200px;
+      overflow: hidden;
+      border-radius: 50%;
+      display: inline-block;
+      float: left;
+      position: relative;
+  }
+
+  ul#customer_menu {
+    position: relative;
+    margin-left: 70%;
+    margin-top: 0px;
+    color:#33557e;
+    bottom: 75px;
+  }
+
+  ul#customer_menu li{
+      color:#33557e;
+      border:2px solid #33557e;
+      padding: 10px;
+      width: 200px;
+      min-width: 200px;
+      text-align: center;
+      display: block;
+  }
+ 
+  ul#customer_menu li:hover{
+    background: rgb(255, 230, 167);    
+  }
+  ul#customer_menu li a{
+    color:#33557e;
+    font-weight: 500;
+  }
+
+table.blueTable {
+    background-color: #EEEEEE;
+    width: 30%;
+    text-align: center;
+    border-collapse: collapse;
+    font-weight: 300;
+  }
+  table.blueTable td, table.blueTable th {
+    border: 1px solid #AAAAAA;
+    padding: 7px 3px;
+  }
+  table.blueTable tbody td {
+    font-size: 15px;
+  }
+  table.blueTable tr:nth-child(even) {
+    background: #D0E4F5;
+  }
+  table.blueTable tfoot td {
+    font-size: 15px;
+  }
+  table.blueTable tfoot .links {
+    text-align: right;
+  }
+  table.blueTable tfoot .links a{
+    display: inline-block;
+    background: #1C6EA4;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 50%;
+  }
+
+  table.blueTable tbody td a{
+      color: black;
+  }
+
+  .dropbtn {
+    background-color: rgb(24, 26, 26);
+    color: white;
+    padding: 13px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    margin-left: 72%;
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color:#466995;
+  }

@@ -1,0 +1,23 @@
+LOGIN PAGE:
+<%=image_tag("login.gif", height: "150px", width: "300px", :alt=>"Login button")%>
+<%=image_tag("createuser.gif", height: "150px", width: "300px", :alt=>"Login button")%>
+
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
+<%end%>
+
+<%=form_with model: @user do |f|%>
+First Name:<%=f.text_field :first_name%>
+<br>
+Last Name:<%=f.text_field :last_name%>
+<br>
+E-mail:<%=f.text_field :email%>
+<br>
+Phone: <%=f.text_field :phone%>
+<br>
+<%=f.submit "New User"%>
+<%end%>
+
+

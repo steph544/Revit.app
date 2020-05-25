@@ -1,0 +1,14 @@
+<p class="style">
+<%=image_tag("currentorders.gif", height: "150px", width: "300px", :alt=>"Current Orders button")%>
+</p>
+<%@customer.orders.each do |order|%>
+<table class="blueTable information font">
+<tbody>
+
+<tr>
+<td><%=order.created_at.to_date%></td><td> <%=link_to "Order Number #{order.id}", order_path(order)%></td></tr>
+
+<%end%>
+</tbody>
+</tr>
+</table>

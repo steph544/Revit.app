@@ -1,0 +1,129 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ * {
+  box-sizing: border-box;
+}
+
+ body {
+    background-color: #FFF;
+    margin: 0 auto;
+  }
+
+  header {
+    background-color: #466995;
+    border-bottom: 1px solid #466995;
+    position: fixed;
+    width: 100%;
+    height: 140px;
+    z-index: 10;
+  }
+
+  ul {
+    margin: 35px auto;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  a {
+    color: #FFF;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #DBE9EE;
+  }
+  
+  li {
+    color: #FFF;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: uppercase;
+    display: inline-block;
+    width:160px;
+    position: relative;
+    bottom: 130px;
+  }
+  
+  li:hover {
+    color: #DBE9EE;
+  }
+
+
+  p {
+      margin: 8px;
+  }
+
+  .main {
+    text-align: left;
+    width: 100%;
+    position: relative;
+    top: 200px;
+    margin-left: 0px;
+    height: 1110px;
+    overflow: scroll;
+  }
+
+
+    footer {
+        background-color: #DBE9EE;
+        text-align: center;
+        height: 120px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        padding: 20px;
+        color:gray;
+        font-family: 'Oswald', sans-serif;
+        font-size: 14px;
+        text-transform: uppercase;
+        width: 100%;
+        margin-left: 0px;
+     }
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .picture {
+        width: 130px;
+        height: 195px;
+        position: relative;
+        display: inline-block;
+    }
+    .picture .img-top {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    }
+    .picture:hover .img-top {
+        display: inline;
+    }
+
+    .logo{
+      margin: 30px;
+      display: inline-block;
+    }
+
+   
+    

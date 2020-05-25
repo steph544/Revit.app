@@ -1,0 +1,43 @@
+<div class="dropdown font">
+  <button class="dropbtn font">Edit Information</button>
+  <div class="dropdown-content font">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+
+<%=image_tag(@customer.url, :class => "show-image", :alt =>"customer profile picture")%>
+
+<p class="style font">
+    <%=image_tag("customerinfobutton.gif", height: "150px", width: "300px", :alt=>"Customer info button")%>
+</p>
+
+
+<table class="blueTable information font">
+<tbody>
+<tr>
+<td>First Name:</td><td> <%=@customer.first_name%></td></tr>
+<tr>
+<td>Last Name:</td><td> <%=@customer.last_name%></td></tr>
+<tr>
+<td>Address:</td><td><%=@customer.address%>, <%=@customer.city%>, <%=@customer.state%> </td></tr>
+<tr>
+<td>Phone:</td><td><%=@customer.phone%></td></tr>
+<tr>
+<td>Email:</td><td><%=@customer.email%></td></tr>
+</tbody>
+</tr>
+</table>
+
+<ul id="customer_menu">
+<li><a href= "/customers/<%=@customer.id%>/orders">REPORTS</li>
+<br>
+<li><a href= "/customers/<%=@customer.id%>/orders">ORDERS</li>
+<br>
+<li><a href= "/customers/<%=@customer.id%>/orders">PRODUCTS</li>
+</ul>
+</p>
+
+<footer>
+</footer>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ExampleApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+  </head>
+
+  <body>
+    <header>
+     <a href="/home">
+           <%= image_tag("rivetlogo.png", size:"90x85", :class=> "logo", :alt => "rivet logo")%> 
+        </a>
+    <ul>
+      <li>
+        <a href="/home">
+          <%= image_tag("home.png", size: "30x15", :alt => "rss feed") %> 
+        <p>
+         HOME</a>
+      </li>
+      <li>
+        <a href="/users/<%=session[:id]%>">
+          <%= image_tag("contacts.png", size: "30x15", :alt => "rss feed") %> 
+        <p>
+          CUSTOMERS</a>
+      </li>
+      <li>PRODUCTS</li>
+      <li>
+        <a href="/orders">
+          <%= image_tag("contacts.png", size: "30x15", :alt => "rss feed") %> 
+        <p>
+          ORDERS</a>
+      </li>
+      <li>SUPPLIERS</li>
+      <li>BOOKKEEPING</li>
+      <li>ACCOUNT</li>
+    </ul>
+  </header>
+  <div class="main">
+    <%= yield %>
+  </div>
+
+    
+</html>
