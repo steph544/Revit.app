@@ -16,9 +16,10 @@ c2=Customer.create(first_name: "Stephanie", last_name:"Cheney", email:"syang723@
 c3=Customer.create(first_name: "Mark", last_name:"Cheney", email:"syang723@yahoo.com", address: "example", city: "Fulshear", state: "TX", phone: "713-418-9253", url: "Owen.jpg")
 c4=Customer.create(first_name: "Elijah", last_name:"Cheney", email:"syang723@yahoo.com", address: "example", city: "Fulshear", state: "TX", phone: "713-418-9253", url: "Owen.jpg")
 
-u1=User.create(first_name:"Stephanie", last_name:"Cheney", email:"syang723@yahoo.com", phone:"713-418-9253")
-u2=User.create(first_name:"Mark", last_name:"Cheney", email:"syang723@yahoo.com", phone:"713-418-9253")
-u3=User.create(first_name:"Elijah", last_name:"Cheney", email:"syang723@yahoo.com", phone:"713-418-9253")
+
+u1=User.create!(first_name:"Stephanie", last_name:"Cheney", email:"syang723@yahoo.com", phone:"713-418-9253", username: "yaya1", password: "1234")
+u2=User.create(first_name:"Mark", last_name:"Cheney", email:"syang723@yahoo.com", phone:"713-418-9253", username: "yaya2", password: "12345")
+u3=User.create(first_name:"Elijah", last_name:"Cheney", email:"syang723@yahoo.com", phone:"713-418-9253", username: "yaya3", password: "123456")
 
 s1= Supplier.create(name:"Walmart", address:"", phone:"")
 s2= Supplier.create(name:"Target", address:"", phone:"")
@@ -37,5 +38,5 @@ o4=Order.create(user_id: u1.id, customer_id:c1.id, paid: 0, duedate:"March 30", 
 
 
 
-byebug 
+#byebug 
 0

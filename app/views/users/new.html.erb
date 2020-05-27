@@ -1,23 +1,29 @@
-LOGIN PAGE:
-<%=image_tag("login.gif", height: "150px", width: "300px", :alt=>"Login button")%>
-<%=image_tag("createuser.gif", height: "150px", width: "300px", :alt=>"Login button")%>
+<div class="container">
 
-<%if flash[:errors]%>
-    <%flash[:errors].each do |e|%>
-        <%=e%>
-    <%end%>
-<%end%>
+<h1>Create your account</h1>
 
-<%=form_with model: @user do |f|%>
-First Name:<%=f.text_field :first_name%>
-<br>
-Last Name:<%=f.text_field :last_name%>
-<br>
-E-mail:<%=f.text_field :email%>
-<br>
-Phone: <%=f.text_field :phone%>
-<br>
-<%=f.submit "New User"%>
-<%end%>
+<%= form_with model: @user, url: '/register' do |f| %>
+  <label>Name:</label> <%= f.text_field :first_name %><br><br>
+  <label>Last Name:</label> <%= f.text_field :last_name %><br><br>
+  <label>Email:</label> <%= f.text_field :email %><br><br>
+  <label>phone:</label> <%= f.text_field :first_name %><br><br>
+  <label>Username:</label> <%= f.text_field :username %><br><br>
+  <label>Password:</label> <%= f.password_field :password %><br><br>
+  <label>Confirm Password:</label> <%= f.password_field :password_confirmation %><br><br>
+  <%= f.submit "Create account" %>
+<% end %><br/><br/><br/><br/><br/><br/><br/><br/>
+
+
+
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <ul><li style="color: red;font-size: 15px; text-align:left "><%= e %></li></ul>
+  <% end %>
+<% end %>
+</div>
+
+
+
+
 
 

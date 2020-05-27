@@ -2,7 +2,7 @@ class CustomersController < ApplicationController
     before_action :current_customer, only: [:show, :orders_list]
     before_action :require_login
 
-    layout "application"
+
     def index
         @user=session[:user_id]
     end 
