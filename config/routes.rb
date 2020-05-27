@@ -8,11 +8,13 @@ Rails.application.routes.draw do
   resources :suppliers 
   resources :products 
 
+  root "sessions#new"
 
   get '/products/:id/orders', to: 'products#orders_list'
   get '/customers/:id/orders', to: 'customers#orders_list'
   get 'home', to: 'users#welcome'
   get '/bookkeeping', to: 'users#bookkeeping'
+  get '/account', to: 'users#account'
 
   get '/login', to: "sessions#new"
   post '/login', to: "sessions#create"

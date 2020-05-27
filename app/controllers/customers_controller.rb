@@ -57,7 +57,7 @@ class CustomersController < ApplicationController
     end 
 
     def current_user 
-        @user=User.find(params[:id])
+        @user = User.find(session[:id])
     end 
 
     private 

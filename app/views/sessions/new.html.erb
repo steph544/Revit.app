@@ -1,12 +1,15 @@
-
+<div class="product-container">
+<div style="flex-grow: 0">
+</div>
+<div style="flex-grow: 2">
 <% if flash[:errors] %>
   <% flash[:errors].each do |e| %>
     <ul><li style="color: red;font-size: 15px; text-align:left "><%= e %></li></ul>
   <% end %>
 <% end %>
 
-<div class="login_form">
-        <h1>Login</h1>
+<div class="form font center">
+        <h2>LOGIN</h2>
         <%= form_with url:"/login" do |f| %> 
             <br>
             <%= f.label "User name"%><br> 
@@ -22,6 +25,9 @@
 <br><br>
 <h4 class="home">First time user sign up here</h4>
 <%= button_to "Sign Up", "/users/new", method: :get %>
+</div>
+</div>
+<div>
 </div>
 
 

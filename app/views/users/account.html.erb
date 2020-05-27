@@ -1,0 +1,45 @@
+
+<div class="product-container">
+<div>
+<br/>
+<br/>
+<br/>
+</div>
+<div style="flex-grow: 0">
+<%=image_tag("userinfo.gif", height: "150px", width: "300px", :alt=>"User info button")%>
+</p>
+<table class="blueTable font">
+<tbody>
+<tr>
+<td>First Name:</td><td> <%=@user.first_name%></td></tr>
+<tr>
+<td>Last Name:</td><td> <%=@user.last_name%></td></tr>
+<tr>
+<td>E-mail:</td><td><%=@user.email%> </td></tr>
+<tr>
+<td>Phone:</td><td><%=@user.phone%> </td></tr>
+<tr>
+<td>Username:</td><td><%=@user.username%> </td></tr>
+<tr>
+<td>
+</td>
+  <td>
+  <%=form_with model: @user, method: :delete do |f|%>
+  <%=f.submit "Sign Out"%>
+  <%end%>
+  </td>
+</tbody>
+</tr>
+</table>
+</div>
+
+<div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+</div>
