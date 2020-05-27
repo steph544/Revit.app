@@ -1,17 +1,55 @@
 class CustomersController < ApplicationController
-    before_action :current_customer, only: [:show, :orders_list]
+    before_action :current_customer, only: [:show, :orders_list, :edit, :update, :destroy]
     before_action :require_login
+    skip_before_action :require_login, only: [:new, :create]
+
+
+    layout "application"
 
 
     def index
-        @user=session[:user_id]
+        @user=User.find(session[:id])
+         @customer=Customer.new
     end 
 
     def show 
-      
     end 
 
     def orders_list 
+    end 
+
+    def new 
+        @customer=Customer.new
+    end 
+
+    def create
+        @user=User.find(session[:id]) 
+        @customer=Customer.new(customers_params)
+            if @customer.valid? 
+            @customer.save  
+            @customer.users << @user 
+            redirect_to @customer
+        else 
+            flash[:errors]=@customer.errors.full_messages 
+            redirect_to "/customers/new"
+        end 
+    end 
+
+    def update 
+        if @customer.update(customers_params)
+            redirect_to @customer 
+        else 
+            flash[:errors]=@customer.errors.full_messages
+            redirect_to "/customers/#{@customer.id}/edit"
+        end 
+    end 
+
+    def patch 
+    end 
+
+    def destroy 
+        @customer.destroy 
+        redirect_to "/customers"
     end 
 
     def current_customer 
@@ -24,6 +62,10 @@ class CustomersController < ApplicationController
 
     private 
     def require_login
-        return head(:forbidden) unless session.include? :user_id
+        return head(:forbidden) unless session.include? :id
     end
+
+    def customers_params
+        params.require(:customer).permit(:first_name, :last_name, :email, :address, :city, :state, :url, :phone)
+    end 
 end

@@ -4,7 +4,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :name 
       t.integer :cost 
       t.integer :retail_price 
-      t.string :url 
+      t.string :url
       t.integer :supplier_id
       t.timestamps
     end

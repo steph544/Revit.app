@@ -1,0 +1,31 @@
+.product_list {
+    text-align: left;
+    width: 250px;
+    position: relative;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+.product-container {
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: nowrap; 
+    justify-content: flex-start; 
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+
+  .product-container > div {
+    width: 1000px;
+    margin: 0px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    font-size: 12px;
+    padding: 30px;
+    align-content: center;
+  }
+ 

@@ -1,0 +1,26 @@
+
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
+<%end%>
+
+<p class="font">
+<%=form_with model: @supplier, method: :patch do |f|%>
+Supplier Name:
+<br><%=f.text_field :name%>
+<br>
+Supplier Address: 
+<br><%=f.text_field :address%>
+<br>
+Supplier Phone: 
+<br><%=f.text_field :phone%>
+<br>
+Supplier Logo URL:
+<br><%=f.text_field :url%>
+<br>
+<%=f.submit "Create New Supplier"%>
+<%end%>
+<p>
+</div>
+</div>

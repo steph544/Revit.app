@@ -1,0 +1,110 @@
+
+
+   .order_form{
+       margin: 15px;
+       display: inline;
+       text-align: left;
+       width: 50%;
+   }
+
+   .order_form .form-checkboxes{
+    max-width: 300px;
+    display: inline;
+    }
+
+   .order_input{
+       width:300px;
+   }
+
+   input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    margin: 8px;
+    display:inline-block;
+ }
+
+  
+  .box {
+    width: 200px;
+    margin: 10 auto;
+    background: rgba(255,255,255,0.2);
+    padding: 15px;
+    border: 2px solid #466995;
+    border-radius: 20px/50px;
+    background-clip: padding-box;
+    text-align: center;
+    color: #466995; 
+  }
+  
+  .box a{
+    color: #466995; 
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup {
+    top: 100px;
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: relative;
+    text-align: center;
+  }
+  .popup input{
+    text-align: left;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .popup .close:hover {
+    color: #333;
+  }
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+  }
+  
+  @media screen and (max-width: 700px){
+    .box{
+      width: 70%;
+    }
+    .popup{
+      width: 80%;
+      height: auto;
+      overflow: scroll;
+      z-index: 0;
+    }
+  }

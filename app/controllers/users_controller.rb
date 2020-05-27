@@ -29,9 +29,18 @@ class UsersController < ApplicationController
         end
     end
 
+    def bookkeeping 
+    end 
+
     private
     def user_params
         params.require(:user).permit(:first_name, :last_name, :email, :phone, :username, :password, :password_confirmation)
+    end
+
+
+    private 
+    def require_login
+        return head(:forbidden) unless session.include? :id
     end
 
 end

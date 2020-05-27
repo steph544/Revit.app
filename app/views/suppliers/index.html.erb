@@ -1,0 +1,40 @@
+<div class="container">
+<div style="flex-grow: 1">
+    <%=image_tag("suppliersbutton.gif", height: "150px", width: "300px", :alt => "suppliers button") %> 
+<p>
+    <%@suppliers.each do |supplier|%>  
+        <%=link_to supplier.name, supplier_path(supplier), class: 'link'%>
+        <br>
+    <%end%>
+</p>
+</div>
+<div style="flex: 5 5 600px">
+<%=image_tag("newsupplier.gif", height: "150px", width: "300px", :alt=>"New Supplier Button")%>
+
+
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
+<%end%>
+
+<p class="font">
+<%=form_with model: @supplier, method: :post do |f|%>
+Supplier Name:
+<br><%=f.text_field :name%>
+<br>
+Supplier Address: 
+<br><%=f.text_field :address%>
+<br>
+Supplier Phone: 
+<br><%=f.text_field :phone%>
+<br>
+Supplier Logo URL:
+<br><%=f.text_field :url%>
+<br>
+<%=f.submit "Create New Supplier"%>
+<%end%>
+<p>
+</div>
+</div>
+

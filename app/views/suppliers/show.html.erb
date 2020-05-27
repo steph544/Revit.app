@@ -1,0 +1,86 @@
+<div class="product-container">
+<div>
+<br/>
+<br/>
+<br/>
+<%=image_tag(@supplier.url, :class => "show-image", :alt =>"")%>
+</div>
+<div style="flex-grow: 0">
+    <%=image_tag("suppliersbutton.gif", height: "150px", width: "300px", :alt=>"Suppliers button")%>
+</p>
+<table class="blueTable font">
+<tbody>
+<tr>
+<td>Supplier Name:</td><td> <%=@supplier.name%></td></tr>
+<tr>
+<td>Address:</td><td><%=@supplier.address%> </td></tr>
+<tr>
+<td>Phone:</td><td><%=@supplier.phone%> </td></tr>
+</td>
+  <td>
+  </td>
+  <td>
+  <%=form_with model: @supplier, method: :delete do |f|%>
+  <%=f.submit "Delete Supplier"%>
+  <%end%>
+  </td>
+</tbody>
+</tr>
+</table>
+</div>
+
+
+<div>
+<br/>
+<br/>
+<br/>
+<div class="box">
+	<a href="#popup1">Edit Info</a>
+</div>
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<%=image_tag("customerinfobutton.gif", height: "150px", width: "300px", :alt => "customers button") %> 
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+        
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
+<%end%>
+
+<p class="font">
+<%=form_with model: @supplier, method: :patch do |f|%>
+Supplier Name:
+<br><%=f.text_field :name%>
+<br>
+Supplier Address: 
+<br><%=f.text_field :address%>
+<br>
+Supplier Phone: 
+<br><%=f.text_field :phone%>
+<br>
+Supplier Logo URL:
+<br><%=f.text_field :url%>
+<br>
+<%=f.submit%>
+<%end%>
+        </div>
+    </div>
+</div>
+
+<p>
+<div class="box">
+	<a href="#popup1">REPORTS</a>
+</div>
+<p>
+<div class="box">
+	<a href="#popup1">ORDERS</a>
+</div>
+<p>
+<div class="box">
+	<a href="#popup1">PRODUCTS</a>
+</div>
+</div>
+</div>

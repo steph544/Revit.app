@@ -1,0 +1,49 @@
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
+<%end%>
+
+
+<div class="font order_form">
+<%=form_with model: @order do |f|%>
+    <%=f.hidden_field(:user_id)%>
+
+    Choose Existing Customer: 
+    <br>
+        <%=f.collection_select :customer_id, @customers, :id, :first_name%>
+    <p>
+    Or New Customer:
+    <br>
+    <br>
+        <%=f.fields_for :customer, Customer.new do |s|%>
+        <%=s.label :first_name%>
+    <br>
+        <%=s.text_field :first_name%>
+    <br>
+        <%=s.label :last_name%>
+    <br>
+        <%=s.text_field :last_name%>
+    <br>
+        <%=s.label :email%>
+    <br>
+        <%=s.text_field :email%>
+    <%end%>
+
+    <br>
+    PRODUCTS:
+    <br> 
+    <%=f.collection_check_boxes :product_ids, @products, :id, :name%>
+    <br>
+    Due Date: 
+    <br>
+    <%=f.text_field :duedate%>
+    <br>
+    Paid: 
+    <br>
+    <%=f.text_field :paid%>
+    <br>
+<%=f.submit "NEW ORDER"%>
+<%end%>
+</div>
+<%=params[:order]%>

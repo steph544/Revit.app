@@ -1,0 +1,97 @@
+
+<div class="product-container">
+<div>
+<br/>
+<br/>
+<br/>
+<%=image_tag(@product.url, :class => "show-image", :alt =>"")%>
+</div>
+<div style="flex-grow: 0">
+<%=image_tag("productinfobutton.gif", height: "150px", width: "300px", :alt=>"Product info button")%>
+</p>
+<table class="blueTable font">
+<tbody>
+<tr>
+<td>Product Name:</td><td> <%=@product.name%></td></tr>
+<tr>
+<td>Cost of Good:</td><td> $<%=@product.cost%></td></tr>
+<tr>
+<td>Retail Price:</td><td>$<%=@product.retail_price%> </td></tr>
+<tr>
+<td>Profit:</td><td>$<%=@product.product_profit%> </td></tr>
+<tr>
+<td>Supplier:</td><td><%=link_to @product.supplier.name, supplier_path(@product.supplier)%></td></tr>
+<tr>
+<td>
+</td>
+  <td>
+  <%=form_with model: @customer, method: :delete do |f|%>
+  <%=f.submit "Delete Product"%>
+  <%end%>
+  </td>
+</tbody>
+</tr>
+</table>
+</div>
+
+<div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div class="box">
+	<a href="#popup1">Edit Info</a>
+</div>
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<%=image_tag("productinfobutton.gif", height: "150px", width: "300px", :alt => "product button") %> 
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+        
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
+<%end%>
+<%=form_with model: @product, method: :patch do |f|%>
+Name:
+<br><%=f.text_field :name%>
+<br>
+Supplier
+<br><%=f.collection_select :supplier_id, @suppliers, :id, :name%>
+<br>
+Product Picture URL:
+<br><%=f.text_field :url%>
+<br>
+Cost:
+<br><%=f.number_field :cost%>
+<br>
+Retail Price:
+<br><%=f.number_field :retail_price%>
+<br>
+<%=f.submit%>
+<%end%>
+<p>
+        </div>
+    </div>
+</div>
+
+<p>
+<div class="box">
+	<a href="#popup1">REPORTS</a>
+</div>
+<p>
+<div class="box">
+	<a href="#popup1">ORDERS</a>
+</div>
+<p>
+<div class="box">
+	<a href="#popup1">PRODUCTS</a>
+</div>
+</div>
+</div>

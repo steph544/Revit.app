@@ -1,1 +1,98 @@
-ORDER SHOW PAGE
+<div class="product-container">
+<div>
+<br/>
+<br/>
+<br/>
+</div>
+<div style="flex-grow: 0">
+    <%=image_tag("orderinfo.gif", height: "150px", width: "300px", :alt=>"Order info button")%>
+</p>
+<table class="blueTable font">
+<tbody>
+<tr>
+<td>Order Number:</td><td> <%=@order.id%></td></tr>
+<tr>
+<td>Customer Name:</td><td> 
+<%if !@order.customer %>
+    <%="No Customer"%>
+<%else%>
+    <a href= "/customers/<%=@order.customer.id%>"><%=@order.customer.first_name%> <%=@order.customer.last_name%></a></td></tr>
+<%end%>
+<tr>
+<td>Products:</td><td> 
+<%if !@order.products %>
+    <%="No Products"%>
+    <%else%>
+    <%@order.products.each do |product|%> <%=link_to product.name, product_path(product)%><p><%end%></tr>
+<%end%>
+<tr>
+<td>Paid:</td><td><%=@order.paid%> </td></tr>
+<tr>
+<td>Order Total:</td><td>$<%=@order.total%> </td></tr>
+<tr>
+<td>Due Date:</td><td><%=@order.duedate%></td></tr>
+<tr>
+<td>
+</td>
+  <td>
+  <%=form_with model: @customer, method: :delete do |f|%>
+  <%=f.submit "Delete Order"%>
+  <%end%>
+  </td>
+</tbody>
+</tr>
+</table>
+</div>
+
+
+<div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="box">
+	<a href="#popup1">Edit Info</a>
+</div>
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<%=image_tag("customerinfobutton.gif", height: "150px", width: "300px", :alt => "customers button") %> 
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+        <%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
+<%end%>
+<%=form_with model: @order do |f|%>
+    <%=f.hidden_field :user_id, :value => session[:id]%>
+
+    Choose Customer: 
+    <br>
+        <%=f.collection_select :customer_id, @user.customers, :id, :first_name%>
+    <br>
+    PRODUCTS:
+    <br> 
+    <%=f.collection_check_boxes :product_ids, @products, :id, :name , :class => "form_checkboxes" %>
+    <p>
+    Due Date: 
+    <br>
+    <%=f.text_field :duedate%>
+    <br>
+    Paid: 
+    <br>
+    <%=f.text_field :paid%>
+    <br>
+<%=f.submit%>
+<%end%>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
