@@ -12,7 +12,7 @@
     <%end%>
 <p>
 </div>
-<div style="flex: 5 5 600px">
+<div style="flex: 5 5 300px">
  <%=image_tag("ordernew.gif", height: "150px", width: "300px", :alt=>"New Order button")%>
 </p>
 
@@ -21,7 +21,6 @@
         <%=e%>
     <%end%>
 <%end%>
-
 <%=form_with model: @order, method: :post do |f|%>
     <%=f.hidden_field :user_id, :value => session[:id]%>
 
@@ -31,8 +30,8 @@
     <br>
     PRODUCTS:
     <br> 
-    <%=f.collection_check_boxes :product_ids, @products, :id, :name%>
-    <br>
+    <%=f.collection_check_boxes :product_ids, @products, :id, :name , :class => "form_checkboxes" %>
+    <p>
     Due Date: 
     <br>
     <%=f.text_field :duedate%>

@@ -45,6 +45,11 @@ class CustomersController < ApplicationController
     def patch 
     end 
 
+    def destroy 
+        @customer.destroy 
+        redirect_to "/customers"
+    end 
+
     def current_customer 
         @customer=Customer.find(params[:id])
     end 

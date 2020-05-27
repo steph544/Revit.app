@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-    before_action :current_order, only: [:update, :show]
+    before_action :current_order, only: [:show, :edit, :destroy, :update]
     before_action :require_login
     skip_before_action :require_login, only: [:new, :create]
 
@@ -11,6 +11,10 @@ class OrdersController < ApplicationController
     end 
 
     def show 
+        @user=User.find(session[:id])
+        @customers=@user.customers
+        @products=@user.products 
+
     end 
     
     def new 
@@ -21,6 +25,10 @@ class OrdersController < ApplicationController
         @users=User.all 
     end 
 
+    def edit
+        @customers=@user.customers 
+    end 
+
     def create 
         @user=User.find(session[:id])
         @order=Order.new(order_params)
@@ -28,12 +36,30 @@ class OrdersController < ApplicationController
         if @order.valid? 
             @order.save 
             @user.orders << @order
-            redirect_to "/orders"
+            redirect_to "/orders/#{@order.id}"
         else 
             flash[:errors]=@customer.errors.full_messages 
             redirect_to "/orders/new"
         end 
     end 
+
+    def update 
+        if @order.update(order_params)
+            redirect_to @order 
+        else 
+            flash[:errors]=@order.errors.full_messages
+            redirect_to "/customers/#{@order.id}/edit"
+        end 
+    end 
+
+    def patch 
+    end 
+
+    def destroy 
+        @order.destroy 
+        redirect_to "/orders"
+    end 
+
 
     def current_order 
         @order=Order.find(params[:id])
@@ -49,7 +75,7 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-        params.require(:order).permit(:user_id, :customer_id,  :duedate, :paid, product_ids:[])
+        params.permit(:user_id, :customer_id,  :duedate, :paid, product_ids:[])
     end 
 
 end

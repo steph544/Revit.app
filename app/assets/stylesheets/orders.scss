@@ -1,11 +1,27 @@
 
 
-   .order_form input collection_check_boxes{
+   .order_form{
        margin: 15px;
        display: inline;
        text-align: left;
+       width: 50%;
    }
 
+   .order_form .form-checkboxes{
+    max-width: 300px;
+    display: inline;
+    }
+
+   .order_input{
+       width:300px;
+   }
+
+   input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    margin: 8px;
+    display:inline-block;
+ }
 
   
   .box {

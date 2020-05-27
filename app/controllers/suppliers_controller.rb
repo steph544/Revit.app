@@ -1,5 +1,5 @@
 class SuppliersController < ApplicationController 
-    before_action :current_supplier, only: [:show, :orders_list]
+    before_action :current_supplier, only: [:show, :orders_list, :edit, :destroy, :update]
     before_action :require_login
     skip_before_action :require_login, only: [:new, :create]
 
@@ -26,6 +26,28 @@ class SuppliersController < ApplicationController
     end 
 
     def show 
+        @user=User.find(session[:id])
+        products=Product.all  
+    end 
+
+    def edit
+    end 
+
+    def update 
+        if @supplier.update(suppliers_params)
+            redirect_to @supplier 
+        else 
+            flash[:errors]=@supplier.errors.full_messages
+            redirect_to "/suppliers/#{@supplier.id}/edit"
+        end 
+    end 
+
+    def patch 
+    end 
+
+    def destroy 
+        @supplier.destroy 
+        redirect_to "/suppliers"
     end 
 
     def current_supplier
@@ -45,6 +67,6 @@ class SuppliersController < ApplicationController
     end
 
     def suppliers_params
-        params.require(:supplier).permit(:name, :address, :phone)
+        params.require(:supplier).permit(:name, :address, :phone, :url)
     end   
     end 

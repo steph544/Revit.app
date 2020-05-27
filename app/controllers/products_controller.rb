@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController 
-    before_action :current_product, only: [:show, :orders_list]
+    before_action :current_product, only: [:show, :orders_list, :destroy, :update, :edit]
     before_action :require_login
     skip_before_action :require_login, only: [:new, :create]
 
@@ -25,8 +25,27 @@ class ProductsController < ApplicationController
             redirect_to "/products/new"
         end 
     end 
+    
+    def destroy 
+        @product.destroy 
+        redirect_to "/products"
+    end 
 
     def show 
+        @suppliers=Supplier.all
+    end 
+
+
+    def update 
+        if @product.update(products_params)
+            redirect_to @product
+        else 
+            flash[:errors]=@product.errors.full_messages
+            redirect_to "/products/#{@product.id}/edit"
+        end 
+    end 
+
+    def patch 
     end 
 
     def current_product
