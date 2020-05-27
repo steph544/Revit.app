@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'bookeepings/index'
   #get '/sessions/new'
   resources :sessions
   resources :customers

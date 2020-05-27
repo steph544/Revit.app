@@ -9,5 +9,20 @@ class User < ApplicationRecord
     validates :password, length: {minimum: 3}
     validates :username, :password, format: { without: /\s/, message: "cannot have spaces" }
     
+
+   def self.total_number_sales_per_order 
+    Product.all.count
+   end
+
+    def self.total_amount_sales_per_order
+        @product.orders.each do |order|
+            order.
+    end
   
+    def self.cost_of_good_sold 
+    end
+    
+    def self.profit
+    end
+   
 end
