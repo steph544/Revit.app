@@ -3,8 +3,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
     create_table :orders do |t|
       t.integer :user_id 
       t.integer :customer_id 
-      t.integer :product_id
-      t.boolean :paid 
+      t.string :paid, :default => "no"
       t.string :duedate 
       t.timestamps
     end

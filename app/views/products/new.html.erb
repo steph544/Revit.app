@@ -1,0 +1,27 @@
+
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
+<%end%>
+
+<div class="new_customer_form font">
+<%=form_with model: @product, method: :post do |f|%>
+Name:
+<br><%=f.text_field :name%>
+<br>
+Supplier
+<br><%=f.collection_select :supplier_id, @suppliers, :id, :name%>
+<br>
+Product Picture URL:
+<br><%=f.text_field :url%>
+<br>
+Cost:
+<br><%=f.number_field :cost%>
+<br>
+Retail Price:
+<br><%=f.number_field :retail_price%>
+<br>
+<%=f.submit "Create New Product"%>
+<%end%>
+<p>
