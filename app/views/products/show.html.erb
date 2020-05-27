@@ -1,0 +1,47 @@
+
+<div class="product-container">
+<div>
+<br/>
+<br/>
+<br/>
+<%=image_tag(@product.url, :class => "show-image", :alt =>"")%>
+</div>
+<div style="flex-grow: 0">
+<%=image_tag("productinfobutton.gif", height: "150px", width: "300px", :alt=>"Product info button")%>
+
+
+<table class="blueTable font">
+<tbody>
+<tr>
+<td>Product Name:</td><td> <%=@product.name%></td></tr>
+<tr>
+<td>Cost of Good:</td><td> $<%=@product.cost%></td></tr>
+<tr>
+<td>Retail Price:</td><td>$<%=@product.retail_price%> </td></tr>
+<tr>
+<td>Profit:</td><td>$<%=@product.product_profit%> </td></tr>
+<tr>
+<td>Supplier:</td><td><%=link_to @product.supplier.name, supplier_path(@product.supplier)%></td></tr>
+</tbody>
+</tr>
+</table>
+</div>
+
+<div>
+<br/>
+<br/>
+<br/>
+<ul id="customer_menu">
+<li><a href= "/products/<%=@product.id%>/orders">EDIT INFO</li>
+
+<li><a href= "/products/<%=@product.id%>/orders">REPORTS</li>
+
+<li><a href= "/products/<%=@product.id%>/orders">ORDERS</li>
+
+<li><a href= "/products/<%=@product.id%>/orders">CUSTOMERS</li>
+</ul>
+</div>
+</div>
+
+<footer>
+</footer>

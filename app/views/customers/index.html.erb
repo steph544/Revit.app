@@ -1,15 +1,57 @@
-
-
-
-<div class="customer_list">
-    <%=image_tag("customers.gif", :alt => "customers button") %> 
+<div class="container">
+<div style="flex-grow: 1">
+<%=image_tag("customers.gif", height: "150px", width: "300px", :alt => "customers button") %> 
+<p>
+<%if !@user.customers.empty?%>
+    <%@user.customers.each do |customer|%>  
+        <%=image_tag(customer.url, :class => "circular", :alt =>"customer profile picture")%>
+        <%=link_to customer.first_name, customer_path(customer), class: 'link'%>
+        <br>
+    <%end%>
+    <%else%>
+    <%=puts "No Customers Yet"%>
+<%end%>
+<p>
 </div>
 
-<p class="name_style link">
-<%@user.customers.each do |customer|%>
-    <%=image_tag(customer.url, :class => "circular", :alt =>"customer profile picture")%>
-    <%=link_to customer.first_name, customer_path(customer), class: 'link'%>
-    <br>
-<%end%>
-</p>
+<div style="flex: 5 5 600px">
+<%=image_tag("newcustomer.gif", height: "150px", width: "300px", :alt=>"New Customer button")%>
 
+
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
+<%end%>
+
+<p class="font">
+<%=form_with model: @customer, method: :post do |f|%>
+First Name:
+<br><%=f.text_field :first_name%>
+<br>
+Last Name:
+<br><%=f.text_field :last_name%>
+<br>
+E-mail:
+<br><%=f.text_field :email%>
+<br>
+Address: 
+<br><%=f.text_field :address%>
+<br>
+City: 
+<br><%=f.text_field :city%>
+<br>
+State: 
+<br><%=f.text_field :state%>
+<br>
+Phone:
+<br><%=f.text_field :phone%>
+<br>
+Profile Pic URL: 
+<br> <%=f.text_field :url %>
+<br>
+<%=f.submit "New Customer"%>
+<%end%>
+<p>
+</div>
+</div>

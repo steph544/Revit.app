@@ -1,14 +1,47 @@
-<p class="style">
-<%=image_tag("allorders.gif", height: "150px", width: "300px", :alt=>"Current Orders button")%>
+<div class="container">
+<div style="flex-grow: 1">
+    <%=image_tag("ordersbutton.gif", height: "150px", width: "300px", :alt => "orders button") %> 
+<p> 
+    <%@user.orders.each do |order|%>
+        <%if order.products.empty?%>
+            <%=""%>
+        <%else%>
+            <%=link_to order.id, order_path(order), class: 'link'%>
+            <br>
+        <%end%>
+    <%end%>
+<p>
+</div>
+<div style="flex: 5 5 600px">
+ <%=image_tag("ordernew.gif", height: "150px", width: "300px", :alt=>"New Order button")%>
 </p>
-<%@user.orders.each do |order|%>
-<table class="blueTable information font">
-<tbody>
 
-<tr>
-<td>Customer: <%=order.customer_id%></td><td><%=order.created_at.to_date%></td><td> <%=link_to "Order Number #{order.id}", order_path(order)%></td><td>Paid Status: <%=order.paid%></td></tr>
-
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
 <%end%>
-</tbody>
-</tr>
-</table>
+
+<%=form_with model: @order, method: :post do |f|%>
+    <%=f.hidden_field :user_id, :value => session[:id]%>
+
+    Choose Customer: 
+    <br>
+        <%=f.collection_select :customer_id, @user.customers, :id, :first_name%>
+    <br>
+    PRODUCTS:
+    <br> 
+    <%=f.collection_check_boxes :product_ids, @products, :id, :name%>
+    <br>
+    Due Date: 
+    <br>
+    <%=f.text_field :duedate%>
+    <br>
+    Paid: 
+    <br>
+    <%=f.text_field :paid%>
+    <br>
+<%=f.submit "NEW ORDER"%>
+<%end%>
+</div>
+</div>

@@ -1,0 +1,43 @@
+ Choose Existing Customer: 
+    <br>
+        <%=f.collection_select :customer_id, @customers, :id, :first_name%>
+    <p>
+    Or New Customer:
+    <br>
+    <br>
+Or New Customer:
+    <br>
+    <br>
+        <%=f.fields_for :customer, Customer.new do |s|%>
+        <%=s.label :first_name%>
+    <br>
+        <%=s.text_field :first_name%>
+    <br>
+        <%=s.label :last_name%>
+    <br>
+        <%=s.text_field :last_name%>
+    <br>
+        <%=s.label :email%>
+    <br>
+        <%=s.text_field :email%>
+    <%end%>
+
+
+    <p class="style">
+<%=image_tag("allorders.gif", height: "150px", width: "300px", :alt=>"Current Orders button")%>
+</p>
+        <%@user.orders.each do |order|%>
+        <%if !order.customer%>
+            <%=""%>
+        <%else%>
+            <table id="orders_table" class="blueTable font">
+            <tbody>
+            <tr>
+            <td>Customer: <br><%=order.customer.first_name%></td><td><%=order.created_at.to_date%></td><td> <%=link_to "Order Number #{order.id}", order_path(order)%></td><td>Paid Status: <%=order.paid%></td><td>Printable Invoice</td></tr>
+        <%end%>
+        <%end%>
+
+
+</tbody>
+</tr>
+</table>

@@ -9,7 +9,7 @@ class CreateCustomers < ActiveRecord::Migration[6.0]
       t.string :zip 
       t.string :state 
       t.string :phone 
-      t.string :url 
+      t.string :url
       t.timestamps
     end
   end

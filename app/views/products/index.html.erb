@@ -1,0 +1,45 @@
+<div class="container">
+<div style="flex-grow: 1">
+    <%=image_tag("productsbutton.gif", height: "150px", width: "300px", :alt => "products button") %> 
+<p>
+    <%@products.each do |product|%>  
+        <%=image_tag(product.url, :class => "circular", :alt =>"")%>
+        <%=link_to product.name, product_path(product), class: 'link'%>
+        <br>
+    <%end%>
+<p>
+</div>
+
+<div style="flex: 5 5 600px">
+<%=image_tag("newproduct.gif", height: "150px", width: "300px", :alt=>"Login button")%>
+
+
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
+<%end%>
+
+
+<%=form_with model: @product, method: :post do |f|%>
+Name:
+<br><%=f.text_field :name%>
+<br>
+Supplier
+<br><%=f.collection_select :supplier_id, @suppliers, :id, :name%>
+<br>
+Product Picture URL:
+<br><%=f.text_field :url%>
+<br>
+Cost:
+<br><%=f.number_field :cost%>
+<br>
+Retail Price:
+<br><%=f.number_field :retail_price%>
+<br>
+<%=f.submit "New Product"%>
+<%end%>
+<p>
+</div>
+</div>
+

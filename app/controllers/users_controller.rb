@@ -34,6 +34,9 @@ class UsersController < ApplicationController
         @user=User.find(params[:id])
     end 
 
+    def bookkeeping 
+    end 
+
     private
     def user_params 
         params.require(:user).permit(:first_name, :last_name, :email, :phone)
@@ -41,6 +44,6 @@ class UsersController < ApplicationController
 
     private 
     def require_login
-        return head(:forbidden) unless session.include? :user_id
+        return head(:forbidden) unless session.include? :id
     end
 end

@@ -1,7 +1,7 @@
 <p class="style">
 <%=image_tag("currentorders.gif", height: "150px", width: "300px", :alt=>"Current Orders button")%>
 </p>
-<%@customer.orders.drop(1).each do |order|%>
+<%@product.orders.drop(1).each do |order|%>
     <%if order.user.id == session[:id]%>
     <table class="blueTable font">
         <tbody>

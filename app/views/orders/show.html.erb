@@ -1,1 +1,49 @@
-ORDER SHOW PAGE
+<div class="product-container">
+<div>
+<br/>
+<br/>
+<br/>
+</div>
+<div style="flex-grow: 0">
+    <%=image_tag("orderinfo.gif", height: "150px", width: "300px", :alt=>"Order info button")%>
+
+<table class="blueTable font">
+<tbody>
+<tr>
+<td>Order Number:</td><td> <%=@order.id%></td></tr>
+<tr>
+<td>Customer Name:</td><td> <%=@order.customer.first_name%></td></tr>
+<tr>
+<td>Products:</td><td> 
+<%if !@order.products %>
+    <%="No Products"%>
+    <%else%>
+    <%@order.products.each do |product|%> <td> <%=product.name%></td></tr><%end%>
+<%end%>
+<tr>
+<td>Paid:</td><td><%=@order.paid%> </td></tr>
+<tr>
+<td>Due Date:</td><td><%=@order.duedate%></td></tr>
+</tbody>
+</tr>
+</table>
+</div>
+
+<div>
+<br/>
+<br/>
+<br/>
+<ul id="customer_menu">
+<li><a href= "/orders/<%=@order.id%>/orders">EDIT INFO</li>
+
+<li><a href= "/orders">REPORTS</li>
+
+<li><a href= "/orders">ORDERS</li>
+
+<li><a href= "/orders">CUSTOMERS</li>
+</ul>
+</div>
+</div>
+
+<footer>
+</footer>

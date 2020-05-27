@@ -1,0 +1,34 @@
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
+<%end%>
+
+<p class="font">
+<%=form_with model: @customer do |f|%>
+First Name:
+<br><%=f.text_field :first_name%>
+<br>
+Last Name:
+<br><%=f.text_field :last_name%>
+<br>
+E-mail:
+<br><%=f.text_field :email%>
+<br>
+Address: 
+<br><%=f.text_field :address%>
+<br>
+City: 
+<br><%=f.text_field :city%>
+<br>
+State: 
+<br><%=f.text_field :state%>
+<br>
+Phone:
+<br><%=f.text_field :phone%>
+<br>
+Profile Pic URL: 
+<br> <%=f.text_field :url %>
+<br>
+<%=f.submit%>
+<%end%>

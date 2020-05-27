@@ -1,15 +1,1 @@
-
-
-
-<div class="customer_list">
-    <%=image_tag("customers.gif", :alt => "customers button") %> 
-</div>
-
-<p class="name_style link">
-<%@user.customers.each do |customer|%>
-    <%=image_tag(customer.url, :class => "circular", :alt =>"customer profile picture")%>
-    <%=link_to customer.first_name, customer_path(customer), class: 'link'%>
-    <br>
-<%end%>
-</p>
-
+USERS SHOW PAGE

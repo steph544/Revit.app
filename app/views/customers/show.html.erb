@@ -1,20 +1,16 @@
-<div class="dropdown font">
-  <button class="dropbtn font">Edit Information</button>
-  <div class="dropdown-content font">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div>
-
+<div class="product-container">
+<div>
+<br/>
+<br/>
+<br/>
 <%=image_tag(@customer.url, :class => "show-image", :alt =>"customer profile picture")%>
-
-<p class="style font">
+</div>
+<div style="flex-grow: 0">
     <%=image_tag("customerinfobutton.gif", height: "150px", width: "300px", :alt=>"Customer info button")%>
 </p>
 
 
-<table class="blueTable information font">
+<table class="blueTable font">
 <tbody>
 <tr>
 <td>First Name:</td><td> <%=@customer.first_name%></td></tr>
@@ -29,15 +25,33 @@
 </tbody>
 </tr>
 </table>
+</div>
 
-<ul id="customer_menu">
-<li><a href= "/customers/<%=@customer.id%>/orders">REPORTS</li>
-<br>
-<li><a href= "/customers/<%=@customer.id%>/orders">ORDERS</li>
-<br>
-<li><a href= "/customers/<%=@customer.id%>/orders">PRODUCTS</li>
-</ul>
-</p>
+<div>
 
-<footer>
-</footer>
+<div class="box">
+	<a href="#popup1">Edit Info</a>
+</div>
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<%=image_tag("customerinfobutton.gif", height: "150px", width: "300px", :alt => "customers button") %> 
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+<%= form_tag customer_path(@customer), method: "patch" do %>
+  <%= render 'form' %>
+<% end %>
+<p>
+<div class="box">
+	<a href="#popup1">REPORTS</a>
+</div>
+<p>
+<div class="box">
+	<a href="#popup1">ORDERS</a>
+</div>
+<p>
+<div class="box">
+	<a href="#popup1">PRODUCTS</a>
+</div>
+</div>
+</div>
