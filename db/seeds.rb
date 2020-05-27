@@ -17,9 +17,16 @@ Purchase.destroy_all
 @products=Product.all 
 @orders=Order.all 
 
+
 50.times do
     Customer.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state, phone: Faker::PhoneNumber.phone_number, url: Faker::Placeholdit.image(size: '50x50') )
   end
+
+
+u1=User.create!(first_name:"Stephanie", last_name:"Cheney", email:"syang723@yahoo.com", phone:"713-418-9253", username: "yaya1", password: "1234")
+u2=User.create(first_name:"Mark", last_name:"Cheney", email:"syang723@yahoo.com", phone:"713-418-9253", username: "yaya2", password: "12345")
+u3=User.create(first_name:"Elijah", last_name:"Cheney", email:"syang723@yahoo.com", phone:"713-418-9253", username: "yaya3", password: "123456")
+
 
 10.times do 
     User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone: Faker::PhoneNumber.phone_number)
@@ -46,6 +53,7 @@ end
 # s2= Supplier.create(name:"Target", address:"", phone:"")
 # s3= Supplier.create(name:"HEB", address:"", phone:"")
 
+
 # p1= Product.create(name:"Product1", cost:25, retail_price:50, url: "", supplier_id: Supplier.all.first.id)
 # p2= Product.create(name:"Product1", cost:25, retail_price:50, url: "", supplier_id: Supplier.all.second.id)
 # p3= Product.create(name:"Product1", cost:25, retail_price:50, url: "", supplier_id: Supplier.all.last.id)
@@ -64,4 +72,5 @@ end
 Purchase.create(product: @products.sample, order: @orders.sample)
 end 
 byebug 
+
 0

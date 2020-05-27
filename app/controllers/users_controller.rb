@@ -1,49 +1,46 @@
 class UsersController < ApplicationController
-    layout "application"
-    before_action :require_login
-    before_action :current_user, only: [:show] 
-    skip_before_action :require_login, only: [:new, :create]
-    
-    def index 
-        @users=User.all
-    end 
 
-    def welcome
-    end 
+    skip_before_action :authenticated, only: [:new, :create]
 
     def new
-        @user=User.new
-    end 
+        @user = User.new
+    end
 
-    def show 
-    end 
+    def create
+    # byebug
+    @user = User.new(user_params)
 
-    def create 
-        @user=User.new(user_params)
-        if @user.valid? 
-            @user.save 
-            redirect_to "/home"
-            session[:id]=@user.id 
-        else 
-            flash[:errors]=@user.errors.full_messages 
-            redirect to "/users/new"
-        end 
-    end 
+        if @user.valid?
+            @user.save
+            session[:user_id] = @user.id
+            redirect_to @user
+        else
+            flash[:errors] = @user.errors.full_messages
+            redirect_to new_user_path
+        end
+    end
 
-    def current_user 
-        @user=User.find(params[:id])
-    end 
+    def show
+        # byebug
+        if session[:user_id] == params[:id].to_i
+            @user = User.find(session[:user_id])
+        else
+            redirect_to @user #"/users/#{session[:user_id]}"
+        end
+    end
 
     def bookkeeping 
     end 
 
     private
-    def user_params 
-        params.require(:user).permit(:first_name, :last_name, :email, :phone)
+    def user_params
+        params.require(:user).permit(:first_name, :last_name, :email, :phone, :username, :password, :password_confirmation)
     end
+
 
     private 
     def require_login
         return head(:forbidden) unless session.include? :id
     end
+
 end
