@@ -15,8 +15,9 @@
 </div>
 
 <div style="flex: 5 5 600px">
+<div class="image-center">
 <%=image_tag("newcustomer.gif", height: "150px", width: "300px", :alt=>"New Customer button")%>
-
+</div>
 
 <%if flash[:errors]%>
     <%flash[:errors].each do |e|%>

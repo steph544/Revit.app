@@ -21,7 +21,7 @@ class SuppliersController < ApplicationController
             redirect_to @supplier
         else 
             flash[:errors]=@supplier.errors.full_messages 
-            redirect_to "/suppliers/new"
+            redirect_to "/suppliers"
         end 
     end 
 

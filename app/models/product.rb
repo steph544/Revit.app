@@ -5,6 +5,10 @@ class Product < ApplicationRecord
     has_many :customers, through: :orders 
     has_many :users, through: :orders  
 
+    validates :name, presence: true 
+    validates :cost, presence: true 
+    validates :retail_price, presence: true 
+
     
 
     def product_profit

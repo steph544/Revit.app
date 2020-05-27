@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
             redirect_to @product
         else 
             flash[:errors]=@product.errors.full_messages 
-            redirect_to "/products/new"
+            redirect_to "/products"
         end 
     end 
     
