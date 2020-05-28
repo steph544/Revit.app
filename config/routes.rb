@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   get '/register', to: "users#new"
   post '/register', to: "users#create"
+  delete '/account'  => 'sessions#destroy'
  # get 'home', to: 'users#welcome'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

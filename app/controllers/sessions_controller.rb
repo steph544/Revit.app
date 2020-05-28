@@ -2,6 +2,8 @@ class SessionsController < ApplicationController
   skip_before_action :authenticated, only: [:new, :create]
 
     def new
+        # 6+
+        
     end
 
     def create
@@ -15,7 +17,7 @@ class SessionsController < ApplicationController
 
         elsif @user && @user.authenticate(params[:password])
             session[:id] = @user.id
-            redirect_to @user
+            redirect_to "/home"
         elsif @user == nil
             #flash[:errors] = @user.errors.full_messages
             redirect_to '/login'
@@ -26,8 +28,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete(:id)
-        redirect_to "/login"
-         byebug
+        redirect_to '/login'
     end
 end
 

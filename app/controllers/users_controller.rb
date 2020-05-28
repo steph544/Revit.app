@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     before_action :current_user, only: [:destroy, :show]
-    skip_before_action :authenticated, only: [:new, :create, :welcome]
+    skip_before_action :authenticated, only: [:new, :create, :welcome, :create, :show]
 
     def new
         @user = User.new
@@ -16,13 +16,13 @@ class UsersController < ApplicationController
             redirect_to "/home"
         else
             flash[:errors] = @user.errors.full_messages
-            redirect_to new_user_path
+            redirect_to "/"
         end
     end
 
     def show
         # byebug
-        if session[:user_id] == params[:id].to_i
+        if session[:id] == params[:id].to_i
             @user = User.find(session[:id])
         else
             redirect_to @user #"/users/#{session[:user_id]}"
