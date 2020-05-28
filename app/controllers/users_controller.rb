@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     def bookkeeping 
         @orders=@user.orders
         @products=@user.products
-        @suppliers=@user.suppliers
+        @suppliers=Supplier.all 
         @customers=@user.customers 
     end 
 

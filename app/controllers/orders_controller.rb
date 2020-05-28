@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
     def show 
         @user=User.find(session[:id])
         @customers=@user.customers
-        @products=@user.products 
+        @products=Product.all 
 
     end 
     
@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
     end 
 
     def update 
-        if @order.update(order_params)
+        if @order.update(order_update_params)
             redirect_to @order 
         else 
             flash[:errors]=@order.errors.full_messages
@@ -72,12 +72,17 @@ class OrdersController < ApplicationController
    
 
     private 
+
     def require_login
         return head(:forbidden) unless session.include? :id
     end
 
     def order_params
-        params.permit(:user_id, :customer_id,  :duedate, :paid, product_ids:[])
+        params.permit(:user_id, :customer_id, :duedate, :paid, product_ids:[])
+    end 
+
+    def order_update_params
+        params.require(:order).permit(:user_id, :customer_id, :duedate, :paid, product_ids:[])
     end 
 
     def current_user 

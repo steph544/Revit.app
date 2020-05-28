@@ -27,5 +27,18 @@ class Customer < ApplicationRecord
             puts "0" 
         end 
     end 
+
+    def total_orders 
+        self.orders.count 
+    end 
+
+    def average_order_amount 
+        self.orders.each.sum do |order| order.total end / total_orders 
+    end 
+
+    def total_amount_spent 
+        self.orders.each.sum do |order| order.total end
+    end 
+
 end
 

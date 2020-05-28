@@ -161,8 +161,12 @@
 	<div class="popup">
 		<%=image_tag("report.gif", height: "150px", width: "300px", :alt => "Products button") %> 
 		<a class="close" href="#">&times;</a>
-		<div class="content">
-    
+		<div class="content font">
+    Total Orders: <%=@customer.total_orders%>
+    <br>
+    Average Order Amount: $<%=@customer.average_order_amount%>
+     <br>
+    Total Order Amount: $<%=@customer.total_amount_spent%>
     </div>
   </div>
 </div>

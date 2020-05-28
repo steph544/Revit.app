@@ -128,8 +128,13 @@ Supplier Logo URL:
 	<div class="popup">
 		<%=image_tag("report.gif", height: "150px", width: "300px", :alt => "Products button") %> 
 		<a class="close" href="#">&times;</a>
-		<div class="content">
-    
+		<div class="content font">
+    Total Orders: <%=@supplier.total_orders%>
+    <br>
+    Number of Customers: <%=@supplier.number_customers%>
+    <br>
+    Number of Products Sold: <%=@supplier.products_sold_count%>
+
     </div>
   </div>
 </div>

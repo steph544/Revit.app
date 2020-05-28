@@ -38,4 +38,8 @@ class Product < ApplicationRecord
             puts "0"
         end 
     end 
+
+    def amount_sold 
+        self.orders.count 
+    end 
 end
