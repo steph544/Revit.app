@@ -30,24 +30,7 @@ class UsersController < ApplicationController
     end
 
     def bookkeeping 
-        @orders=@user.orders
-        @products=@user.products
-        @suppliers=@user.suppliers
-        @customers=@user.customers 
-    end 
-
-    def account 
-    end 
-
-    def current_user 
-        @user = User.find(session[:id])
-    end 
-
-    def destroy 
-        @user.destroy 
-        redirect_to "/"
-      
-      
+       
             
     end 
 
