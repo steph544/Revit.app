@@ -45,6 +45,9 @@ class ProductsController < ApplicationController
         end 
     end 
 
+    def edit 
+    end 
+    
     def patch 
     end 
 
@@ -53,7 +56,7 @@ class ProductsController < ApplicationController
     end 
 
     def current_user 
-        @user=User.find(params[:id])
+        @user = User.find(session[:id])
     end 
 
     def orders_list 

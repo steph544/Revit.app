@@ -5,7 +5,7 @@
 <%if !@user.customers.empty?%>
     <%@user.customers.each do |customer|%>  
         <%=image_tag(customer.url, :class => "circular", :alt =>"customer profile picture")%>
-        <%=link_to customer.first_name, customer_path(customer), class: 'link'%>
+        <%=link_to customer.full_name, customer_path(customer), class: 'link'%>
         <br>
     <%end%>
     <%else%>

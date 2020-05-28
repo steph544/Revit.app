@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
             redirect_to '/login'
 
         elsif @user && @user.authenticate(params[:password])
-            session[:user_id] = @user.id
+            session[:id] = @user.id
             redirect_to @user
         elsif @user == nil
             #flash[:errors] = @user.errors.full_messages
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        session.delete(:user_id)
+        session.delete(:id)
         redirect_to "/login"
          byebug
     end

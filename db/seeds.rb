@@ -67,7 +67,8 @@ end
 50.times do 
     Order.create(user: @users.sample, customer: @customers.sample, paid: 0, duedate:Faker::Date.forward(days: 30))
 end 
-    
+
+
 30.times do 
 Purchase.create(product: @products.sample, order: @orders.sample)
 end 
