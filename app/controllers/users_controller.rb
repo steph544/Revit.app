@@ -47,6 +47,23 @@ class UsersController < ApplicationController
     def destroy 
         @user.destroy 
         redirect_to "/"
+      
+        #total_number_sales_per_order = @order.products.each do |p| 
+        #    p.name.count
+        #end 
+           
+        
+      #def total_amount_sales_per_order 
+        #total = 0 
+        #@product.orders.each do |order|
+       #          total += order.
+      
+          
+      #def cost_of_good_sold 
+     
+            
+           # profit
+            
     end 
 
     private
