@@ -29,7 +29,8 @@ ActiveRecord::Schema.define(version: 2020_05_27_022851) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.integer "customer_id"
-    t.string "paid", default: "no"
+    t.integer "product_id"
+    t.boolean "paid"
     t.string "duedate"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -56,7 +57,6 @@ ActiveRecord::Schema.define(version: 2020_05_27_022851) do
     t.string "name"
     t.string "address"
     t.string "phone"
-    t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -11,5 +11,7 @@ class User < ApplicationRecord
     validates :password, length: {minimum: 3}
     validates :username, :password, format: { without: /\s/, message: "cannot have spaces" }
     
+
   
+   
 end
