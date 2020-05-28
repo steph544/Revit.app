@@ -11,14 +11,9 @@
 </div>
 
 <div style="flex: 5 5 600px">
+<div class="image_center_pic">
 <%=image_tag("newproduct.gif", height: "150px", width: "300px", :alt=>"Login button")%>
-
-
-<%if flash[:errors]%>
-    <%flash[:errors].each do |e|%>
-        <%=e%>
-    <%end%>
-<%end%>
+</div>
 
 
 <%=form_with model: @product, method: :post do |f|%>
@@ -40,6 +35,14 @@ Retail Price:
 <%=f.submit "New Product"%>
 <%end%>
 <p>
+
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
+<%end%>
+<p>
+
 </div>
 </div>
 

@@ -75,6 +75,8 @@
         width: 100%;
         margin-left: 0px;
      }
+
+     
     img {
         max-width: 100%;
         height: auto;
@@ -133,6 +135,18 @@
   width: 50%;
 }
 
+.image_center_pic{
+  margin-left: 10%;
+}
+
+.show_center_pic{
+  margin-left: 15%;
+}
+
+.login_center_pic{
+  margin-left: 35%;
+  width: 600px;
+}
 
 .login_form input{
   password_field: 100%;

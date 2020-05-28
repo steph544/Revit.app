@@ -1,11 +1,12 @@
-<div class="font order_form">
-
 <%if flash[:errors]%>
     <%flash[:errors].each do |e|%>
         <%=e%>
     <%end%>
 <%end%>
-<%=form_with model: @order, method: :patch do |f|%>
+<p>
+
+<%=form_with model: @order do |f|%>
+
     <%=f.hidden_field :user_id, :value => session[:id]%>
 
     Choose Customer: 
@@ -14,7 +15,9 @@
     <br>
     PRODUCTS:
     <br> 
-    <%=f.collection_check_boxes :product_ids, @products, :id, :name , :class => "form_checkboxes" %>
+    <div class="form-check">
+    <%=f.collection_check_boxes :product_ids, @products, :id, :name, class: 'form-check-input' %>
+    </div>
     <p>
     Due Date: 
     <br>
@@ -24,5 +27,5 @@
     <br>
     <%=f.text_field :paid%>
     <br>
-<%=f.submit "EDIT ORDER"%>
+<%=f.submit%>
 <%end%>

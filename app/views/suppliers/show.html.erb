@@ -3,10 +3,13 @@
 <br/>
 <br/>
 <br/>
+<br/>
 <%=image_tag(@supplier.url, :class => "show-image", :alt =>"")%>
 </div>
 <div style="flex-grow: 0">
+<div class="show_center_pic">
     <%=image_tag("suppliersbutton.gif", height: "150px", width: "300px", :alt=>"Suppliers button")%>
+</div>
 </p>
 <table class="blueTable font">
 <tbody>
@@ -31,6 +34,7 @@
 
 
 <div>
+<br/>
 <br/>
 <br/>
 <br/>
@@ -124,8 +128,13 @@ Supplier Logo URL:
 	<div class="popup">
 		<%=image_tag("report.gif", height: "150px", width: "300px", :alt => "Products button") %> 
 		<a class="close" href="#">&times;</a>
-		<div class="content">
-    
+		<div class="content font">
+    Total Orders: <%=@supplier.total_orders%>
+    <br>
+    Number of Customers: <%=@supplier.number_customers%>
+    <br>
+    Number of Products Sold: <%=@supplier.products_sold_count%>
+
     </div>
   </div>
 </div>

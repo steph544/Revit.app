@@ -46,6 +46,10 @@ class ProductsController < ApplicationController
     end 
 
     def edit 
+        @user=User.find(session[:id])
+        @products=Product.all 
+        @suppliers=Supplier.all
+        @product=Product.new 
     end 
     
     def patch 

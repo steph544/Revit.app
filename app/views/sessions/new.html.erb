@@ -2,15 +2,12 @@
 <div style="flex-grow: 0">
 </div>
 <div style="flex-grow: 2">
-<% if flash[:errors] %>
-  <% flash[:errors].each do |e| %>
-    <ul><li style="color: red;font-size: 15px; text-align:left "><%= e %></li></ul>
-  <% end %>
-<% end %>
+<div class="login_center_pic">
+<%=image_tag("welcomesign.gif", height: "150px", width: "300px", :alt=>"User info button")%>
 
-<div class="form font center">
-        <h2>LOGIN</h2>
-        <%= form_with url:"/login" do |f| %> 
+
+<div class="font form">
+        <%= form_with url:"/login", method: :post do |f| %> 
             <br>
             <%= f.label "User name"%><br> 
             <%= f.text_field :username , class: "input" %> 
@@ -22,11 +19,15 @@
             <%= f.submit "Login" , class: "button"%>
         <% end %> 
        
-<br><br>
-<h4 class="home">First time user sign up here</h4>
 <%= button_to "Sign Up", "/users/new", method: :get %>
 </div>
 </div>
+</div>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <ul><li style="color: red;font-size: 15px; text-align:left "><%= e %></li></ul>
+  <% end %>
+<% end %>
 <div>
 </div>
 

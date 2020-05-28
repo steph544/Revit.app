@@ -4,9 +4,9 @@
         <%=e%>
     <%end%>
 <%end%>
+<p>
 
-<div class="new_customer_form font">
-<%=form_with model: @product, method: :patch do |f|%>
+<%=form_with model: @product do |f|%>
 Name:
 <br><%=f.text_field :name%>
 <br>
@@ -22,6 +22,5 @@ Cost:
 Retail Price:
 <br><%=f.number_field :retail_price%>
 <br>
-<%=f.submit "Create New Product"%>
+<%=f.submit%>
 <%end%>
-<p>

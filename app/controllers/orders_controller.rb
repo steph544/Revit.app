@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
     before_action :current_order, only: [:show, :edit, :destroy, :update]
+    before_action :not_logged_in, only: [:index]
     before_action :require_login
     skip_before_action :require_login, only: [:new, :create]
 
@@ -13,7 +14,7 @@ class OrdersController < ApplicationController
     def show 
         @user=User.find(session[:id])
         @customers=@user.customers
-        @products=@user.products 
+        @products=Product.all 
 
     end 
     
@@ -27,6 +28,9 @@ class OrdersController < ApplicationController
 
     def edit
         @customers=@user.customers 
+        @orders=Order.all 
+        @user=current_user 
+        @products=Product.all 
     end 
 
     def create 
@@ -44,7 +48,7 @@ class OrdersController < ApplicationController
     end 
 
     def update 
-        if @order.update(order_params)
+        if @order.update(order_update_params)
             redirect_to @order 
         else 
             flash[:errors]=@order.errors.full_messages
@@ -65,17 +69,24 @@ class OrdersController < ApplicationController
         @order=Order.find(params[:id])
     end 
 
-    def current_user 
-        @user=User.find(session[:id])
-    end 
+   
 
     private 
+
     def require_login
         return head(:forbidden) unless session.include? :id
     end
 
     def order_params
-        params.permit(:user_id, :customer_id,  :duedate, :paid, product_ids:[])
+        params.permit(:user_id, :customer_id, :duedate, :paid, product_ids:[])
+    end 
+
+    def order_update_params
+        params.require(:order).permit(:user_id, :customer_id, :duedate, :paid, product_ids:[])
+    end 
+
+    def current_user 
+        @user=User.find(session[:id])
     end 
 
 end

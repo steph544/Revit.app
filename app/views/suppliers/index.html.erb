@@ -9,14 +9,10 @@
 </p>
 </div>
 <div style="flex: 5 5 600px">
+<div class="image_center_pic">
 <%=image_tag("newsupplier.gif", height: "150px", width: "300px", :alt=>"New Supplier Button")%>
+</div>
 
-
-<%if flash[:errors]%>
-    <%flash[:errors].each do |e|%>
-        <%=e%>
-    <%end%>
-<%end%>
 
 <p class="font">
 <%=form_with model: @supplier, method: :post do |f|%>
@@ -35,6 +31,12 @@ Supplier Logo URL:
 <%=f.submit "Create New Supplier"%>
 <%end%>
 <p>
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
+<%end%>
+
 </div>
 </div>
 
