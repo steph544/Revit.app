@@ -11,5 +11,21 @@ class Customer < ApplicationRecord
     def full_name 
         "#{self.first_name} #{self.last_name}"
     end 
+
+    def self.monthly_customers
+        now = Date.today
+        thirty_days_ago = (now - 30)
+        self.all.select do |customer| customer.created_at > thirty_days_ago end.count
+    end 
+
+    def self.average_purchase
+        if !self.all.empty?
+            total= 0
+            self.all.each.sum do |customer| customer.orders.each do |order| total += order.total end end 
+            total/ self.all.each do |customer| customer.orders end.count 
+        else
+            puts "0" 
+        end 
+    end 
 end
 

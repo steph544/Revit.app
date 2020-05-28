@@ -32,6 +32,10 @@ class Product < ApplicationRecord
     end 
 
     def self.average_retail_price 
-        self.all.each.sum do |product| product.retail_price end/self.all.count 
+        if !self.all.empty?
+            self.all.each.sum do |product| product.retail_price end/self.all.count 
+        else 
+            puts "0"
+        end 
     end 
 end

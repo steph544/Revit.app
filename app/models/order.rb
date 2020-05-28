@@ -61,7 +61,11 @@ class Order < ApplicationRecord
     end 
 
     def self.average_total 
+        if !self.all.empty?
         self.all.each.sum do |order| order.total end / self.all.count
+        else 
+            puts "0"
+        end 
     end 
    
 end

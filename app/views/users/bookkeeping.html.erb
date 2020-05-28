@@ -94,7 +94,9 @@
 	            <div class="popup">
 		            <a class="close" href="#">&times;</a>
 		            <div class="content font">
-                    Customers
+                        New customers this month: <%=@customers.monthly_customers%>
+                        <br>
+                        Average purchase total: $<%=@customers.average_purchase%>
                     </div>
                 </div>
             </div>
