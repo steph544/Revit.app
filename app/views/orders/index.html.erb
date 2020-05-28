@@ -13,15 +13,14 @@
 <p>
 </div>
 <div style="flex: 5 5 300px">
+<div class="image_center_pic">
  <%=image_tag("ordernew.gif", height: "150px", width: "300px", :alt=>"New Order button")%>
+</div>
 </p>
 
-<%if flash[:errors]%>
-    <%flash[:errors].each do |e|%>
-        <%=e%>
-    <%end%>
-<%end%>
+
 <%=form_with model: @order, method: :post do |f|%>
+
     <%=f.hidden_field :user_id, :value => session[:id]%>
 
     Choose Customer: 
@@ -30,7 +29,9 @@
     <br>
     PRODUCTS:
     <br> 
-    <%=f.collection_check_boxes :product_ids, @products, :id, :name , :class => "form_checkboxes" %>
+    <div class="form-check">
+    <%=f.collection_check_boxes :product_ids, @products, :id, :name, class: 'form-check-input' %>
+    </div>
     <p>
     Due Date: 
     <br>
@@ -41,6 +42,12 @@
     <%=f.text_field :paid%>
     <br>
 <%=f.submit "NEW ORDER"%>
+<%end%>
+<p>
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
 <%end%>
 </div>
 </div>

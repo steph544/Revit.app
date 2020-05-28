@@ -15,15 +15,11 @@
 </div>
 
 <div style="flex: 5 5 600px">
-<div class="image-center">
+<div class="image_center_pic">
 <%=image_tag("newcustomer.gif", height: "150px", width: "300px", :alt=>"New Customer button")%>
 </div>
 
-<%if flash[:errors]%>
-    <%flash[:errors].each do |e|%>
-        <%=e%>
-    <%end%>
-<%end%>
+
 
 <p class="font">
 <%=form_with model: @customer, method: :post do |f|%>
@@ -54,5 +50,12 @@ Profile Pic URL:
 <%=f.submit "New Customer"%>
 <%end%>
 <p>
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+    <%end%>
+<%end%>
+</p>
 </div>
 </div>
+

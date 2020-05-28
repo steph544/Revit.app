@@ -27,6 +27,9 @@ class OrdersController < ApplicationController
 
     def edit
         @customers=@user.customers 
+        @orders=Order.all 
+        @user=current_user 
+        @products=Product.all 
     end 
 
     def create 

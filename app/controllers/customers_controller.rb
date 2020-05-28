@@ -32,7 +32,7 @@ class CustomersController < ApplicationController
             redirect_to @customer
         else 
             flash[:errors]=@customer.errors.full_messages 
-            redirect_to "/customers/new"
+            redirect_to "/customers"
         end 
     end 
 

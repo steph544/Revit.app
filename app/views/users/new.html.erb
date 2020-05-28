@@ -2,7 +2,9 @@
 <div>
 </div>
 <div style="flex-grow: 2" class="font login_form">
-<h2>CREATE YOUR ACCOUNT</h2>
+<div class="show_center_pic">
+<%=image_tag("newaccount.gif", height: "150px", width: "300px", :alt=>"User info button")%>
+</div>
 <p>
 <%= form_with model: @user, url: '/register' do |f| %>
   <label>Name:
