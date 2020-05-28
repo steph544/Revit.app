@@ -13,6 +13,7 @@ class CustomersController < ApplicationController
     end 
 
     def show 
+        @user = User.find(session[:id])
     end 
 
     def orders_list 

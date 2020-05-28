@@ -1,1 +1,126 @@
-BOOKKEEPING PAGE
+<div class="product-container">
+<div style="width: 400px">
+</div>
+<div>
+<div style="flex-grow: 0">
+<table>
+<tbody>
+    <tr>
+        <td>
+            <div>
+	            <a href="#popup1">
+                 <%=image_tag("profit.gif", height: "150px", width: "300px", :alt=>"Profit Button")%> 
+                 </a>
+            </div>
+            <div id="popup1" class="overlay">
+	            <div class="popup">
+		            <a class="close" href="#">&times;</a>
+		            <div class="content font">
+                     Monthly Profit: $<%=@orders.orders_monthly_profit%>
+                     <br> 
+                     Yearly Profit: $<%=@orders.orders_yearly_profit%>
+                    </div>
+                </div>
+            </div>
+        </td>
+
+        <td>
+            <div>
+	            <a href="#popup2">
+                 <%=image_tag("revenue.gif", height: "150px", width: "300px", :alt=>"Revenue Button")%> 
+                 </a>
+            </div>
+            <div id="popup2" class="overlay">
+	            <div class="popup">
+		            <a class="close" href="#">&times;</a>
+		            <div class="content font">
+                      Monthly Revenue: $<%=@orders.orders_monthly_revenue%>
+                      <br>
+                      Yearly Revenue: $<%=@orders.orders_yearly_revenue%>
+                    </div>
+                </div>
+            </div>
+        </td>
+    <tr>
+        <td>
+            <div>
+	            <a href="#popup3">
+                 <%=image_tag("ordersbutton.gif", height: "150px", width: "300px", :alt=>"Orders Button")%> 
+                 </a>
+            </div>
+            <div id="popup3" class="overlay">
+	            <div class="popup">
+		            <a class="close" href="#">&times;</a>
+		            <div class="content font">
+                        Total orders this month: <%=@orders.orders_monthly_count%> 
+                        <br>
+                        Total orders this year: <%=@orders.orders_year_to_date.count%> 
+                        <br>
+                        Total orders: <%=@orders.total_orders%> 
+                        <br>
+                        Average order total: $<%=@orders.average_total%>
+                    </div>
+                </div>
+            </div>
+        </td>
+
+        <td>
+            <div>
+	            <a href="#popup4">
+                 <%=image_tag("productsbutton.gif", height: "150px", width: "300px", :alt=>"Products Button")%> 
+                 </a>
+            </div>
+            <div id="popup4" class="overlay">
+	            <div class="popup">
+		            <a class="close" href="#">&times;</a>
+		            <div class="content font">
+                    Total products sold this month: <%=@products.monthly_sold%>
+                    <br>
+                    Total products sold this year: <%=@products.yearly_sold%>
+                    <br>
+                    Average retail price of products: $<%=@products.average_retail_price%>
+                    </div>
+                </div>
+            </div>
+        </td>
+    <tr>
+        <td>
+            <div>
+	            <a href="#popup5">
+                 <%=image_tag("customers.gif", height: "150px", width: "300px", :alt=>"Orders Button")%> 
+                 </a>
+            </div>
+            <div id="popup5" class="overlay">
+	            <div class="popup">
+		            <a class="close" href="#">&times;</a>
+		            <div class="content font">
+                    Customers
+                    </div>
+                </div>
+            </div>
+        </td>
+        <td>
+            <div>
+	            <a href="#popup6">
+                 <%=image_tag("suppliersbutton.gif", height: "150px", width: "300px", :alt=>"Orders Button")%> 
+                 </a>
+            </div>
+            <div id="popup6" class="overlay">
+	            <div class="popup">
+		            <a class="close" href="#">&times;</a>
+		            <div class="content font">
+                    Suppliers
+                    </div>
+                </div>
+            </div>
+        </td>
+
+</tbody>
+</table>
+</p>
+</div>
+<div>
+</div>
+<div>
+</div>
+</div>

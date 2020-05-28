@@ -30,12 +30,6 @@
     height: 147px;
     z-index: 10;
   }
-/* 
-  ul {
-    margin: 35px auto;
-    padding: 0 10px;
-    text-align: center;
-  } */
 
   a {
     color: #FFF;
@@ -50,23 +44,6 @@
   a:hover {
     color: #DBE9EE;
   }
-  
-  /* li {
-    color: #FFF;
-    font-family: 'Oswald', sans-serif;
-    font-size: 18px;
-    font-weight: 300;
-    text-transform: uppercase;
-    display: inline-block;
-    width:160px;
-    position: relative;
-    bottom: 130px;
-  } */
-  
-  /* li:hover {
-    color: #DBE9EE;
-  } */
-
 
   p {
       margin: 8px;
@@ -155,6 +132,7 @@
   margin-right: auto;
   width: 50%;
 }
+
 
 .login_form input{
   password_field: 100%;

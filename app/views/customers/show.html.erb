@@ -51,21 +51,119 @@
 		<%=image_tag("customerinfobutton.gif", height: "150px", width: "300px", :alt => "customers button") %> 
 		<a class="close" href="#">&times;</a>
 		<div class="content">
-<%= form_tag customer_path(@customer), method: "patch" do %>
-  <%= render 'form' %>
-<% end %>
+
+    <%if flash[:errors]%>
+        <%flash[:errors].each do |e|%>
+          <%=e%>
+       <%end%>
+    <%end%>
+    <%if flash[:errors]%>
+      <%flash[:errors].each do |e|%>
+        <%=e%>
+      <%end%>
+    <%end%>
+
+<p class="form font">
+<%=form_with model: @customer do |f|%>
+    First Name:
+      <br>
+        <%=f.text_field :first_name%>
+      <br>
+    Last Name:
+      <br>
+        <%=f.text_field :last_name%>
+      <br>
+    E-mail:
+      <br>
+        <%=f.text_field :email%>
+      <br>
+    Address: 
+      <br>
+        <%=f.text_field :address%>
+      <br>
+    City: 
+      <br>
+        <%=f.text_field :city%>
+      <br>
+    State: 
+      <br>
+        <%=f.text_field :state%>
+      <br>
+    Phone:
+      <br>
+        <%=f.text_field :phone%>
+      <br>
+    Profile Pic URL: 
+      <br> 
+        <%=f.text_field :url %>
+    <br>
+    <%=f.submit%>
+  <%end%>
+
+		</div>
+	</div>
+</div>
+
+  
 
 <p>
 <div class="box">
-	<a href="#popup1">REPORTS</a>
+	<a href="#popup2">ORDERS</a>
+</div>
+<div id="popup2" class="overlay">
+	<div class="popup">
+		<%=image_tag("ordersbutton.gif", height: "150px", width: "300px", :alt => "customers button") %> 
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+    <%if @customer.orders.empty?%>
+      <%="No Current Orders"%>
+    <%else%>
+      <%@user.orders.select do |order| order.customer == @customer %>
+      <%=link_to order.id, order_path(order)%>
+      <br>
+      <%end%>
+    <%end%>
+    </div>
+  </div>
 </div>
 <p>
-<div class="box">
-	<a href="#popup1">ORDERS</a>
-</div>
+
+
 <p>
 <div class="box">
-	<a href="#popup1">PRODUCTS</a>
+	<a href="#popup3">PRODUCTS</a>
 </div>
+<div id="popup3" class="overlay">
+	<div class="popup">
+		<%=image_tag("productsbutton.gif", height: "150px", width: "300px", :alt => "Products button") %> 
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+    <%if @customer.purchases.empty?%>
+      <%="No Current Products"%>
+    <%else%>
+      <%@customer.products.each do |product| product.name %>
+      <%=link_to product.name, product_path(product)%>
+      <br>
+      <%end%>
+    <%end%>
+    </div>
+  </div>
+</div>
+<p>
+
+<p>
+<div class="box">
+	<a href="#popup4">REPORT</a>
+</div>
+<div id="popup4" class="overlay">
+	<div class="popup">
+		<%=image_tag("report.gif", height: "150px", width: "300px", :alt => "Products button") %> 
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+    
+    </div>
+  </div>
+</div>
+<p>
 </div>
 </div>

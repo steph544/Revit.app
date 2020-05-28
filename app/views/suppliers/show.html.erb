@@ -40,7 +40,7 @@
 
 <div id="popup1" class="overlay">
 	<div class="popup">
-		<%=image_tag("customerinfobutton.gif", height: "150px", width: "300px", :alt => "customers button") %> 
+		<%=image_tag("supplierinfobutton.gif", height: "150px", width: "300px", :alt => "customers button") %> 
 		<a class="close" href="#">&times;</a>
 		<div class="content">
         
@@ -70,17 +70,65 @@ Supplier Logo URL:
     </div>
 </div>
 
+
 <p>
 <div class="box">
-	<a href="#popup1">REPORTS</a>
+	<a href="#popup2">ORDERS</a>
+</div>
+<div id="popup2" class="overlay">
+	<div class="popup">
+		<%=image_tag("ordersbutton.gif", height: "150px", width: "300px", :alt => "customers button") %> 
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+    <%if @user.suppliers.empty?%>
+      <%="No Current Orders"%>
+    <%else%>
+      <%@user.orders.select do |order| order.suppliers.include?(@supplier)%>
+      <%=link_to order.id, order_path(order)%>
+      <br>
+      <%end%>
+    <%end%>
+    </div>
+  </div>
 </div>
 <p>
-<div class="box">
-	<a href="#popup1">ORDERS</a>
-</div>
+
+
 <p>
 <div class="box">
-	<a href="#popup1">PRODUCTS</a>
+	<a href="#popup3">CUSTOMERS</a>
 </div>
+<div id="popup3" class="overlay">
+	<div class="popup">
+		<%=image_tag("customers.gif", height: "150px", width: "300px", :alt => "Customers button") %> 
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+    <%if @supplier.customers.empty?%>
+      <%="No Current Customers"%>
+    <%else%>
+      <%@supplier.customers.each do |customer|%>
+      <%=link_to customer.full_name, customer_path(customer)%>
+      <br>
+      <%end%>
+    <%end%>
+    </div>
+  </div>
+</div>
+<p>
+
+<p>
+<div class="box">
+	<a href="#popup4">REPORT</a>
+</div>
+<div id="popup4" class="overlay">
+	<div class="popup">
+		<%=image_tag("report.gif", height: "150px", width: "300px", :alt => "Products button") %> 
+		<a class="close" href="#">&times;</a>
+		<div class="content">
+    
+    </div>
+  </div>
+</div>
+<p>
 </div>
 </div>

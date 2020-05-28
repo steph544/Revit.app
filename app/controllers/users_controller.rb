@@ -30,6 +30,10 @@ class UsersController < ApplicationController
     end
 
     def bookkeeping 
+        @orders=Order.all 
+        @products=Product.all 
+        @suppliers=Supplier.all 
+        @customers=Customer.all 
     end 
 
     def account 
