@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
     before_action :current_order, only: [:show, :edit, :destroy, :update]
-    before_action :not_logged_in 
+    before_action :not_logged_in, only: [:index]
     before_action :require_login
     skip_before_action :require_login, only: [:new, :create]
 
