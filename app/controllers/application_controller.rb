@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
     before_action :authenticated
 
     def current_user
@@ -9,6 +8,12 @@ class ApplicationController < ActionController::Base
         
         end
     end
+
+    private 
+
+    def not_logged_in
+        redirect_to "/" unless logged_in?
+    end 
 
     def logged_in?
         !!current_user

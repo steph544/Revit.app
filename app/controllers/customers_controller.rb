@@ -9,7 +9,7 @@ class CustomersController < ApplicationController
 
     def index
         @user=User.find(session[:id])
-         @customer=Customer.new
+        @customer=Customer.new
     end 
 
     def show 

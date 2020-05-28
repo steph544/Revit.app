@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
     before_action :current_order, only: [:show, :edit, :destroy, :update]
+    before_action :not_logged_in 
     before_action :require_login
     skip_before_action :require_login, only: [:new, :create]
 
@@ -68,9 +69,7 @@ class OrdersController < ApplicationController
         @order=Order.find(params[:id])
     end 
 
-    def current_user 
-        @user=User.find(session[:id])
-    end 
+   
 
     private 
     def require_login
@@ -79,6 +78,10 @@ class OrdersController < ApplicationController
 
     def order_params
         params.permit(:user_id, :customer_id,  :duedate, :paid, product_ids:[])
+    end 
+
+    def current_user 
+        @user=User.find(session[:id])
     end 
 
 end

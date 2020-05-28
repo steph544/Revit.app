@@ -1,25 +1,23 @@
 <div class="container">
 <div style="flex-grow: 1">
-<%=image_tag("customers.gif", height: "150px", width: "300px", :alt => "customers button") %> 
-<p>
-<%if !@user.customers.empty?%>
-    <%@user.customers.each do |customer|%>  
-        <%=image_tag(customer.url, :class => "circular", :alt =>"customer profile picture")%>
-        <%=link_to customer.full_name, customer_path(customer), class: 'link'%>
-        <br>
+    <%=image_tag("customers.gif", height: "150px", width: "300px", :alt => "customers button") %> 
+    <p>
+    <%if !@user.customers.empty?%>
+        <%@user.customers.each do |customer|%>  
+            <%=image_tag(customer.url, :class => "circular", :alt =>"customer profile picture")%>
+            <%=link_to customer.full_name, customer_path(customer), class: 'link'%>
+             <br>
+            <%end%>
+        <%else%>
+        <%=puts "No Customers Yet"%>
     <%end%>
-    <%else%>
-    <%=puts "No Customers Yet"%>
-<%end%>
 <p>
 </div>
 
 <div style="flex: 5 5 600px">
 <div class="image_center_pic">
-<%=image_tag("newcustomer.gif", height: "150px", width: "300px", :alt=>"New Customer button")%>
+    <%=image_tag("newcustomer.gif", height: "150px", width: "300px", :alt=>"New Customer button")%>
 </div>
-
-
 
 <p class="font">
 <%=form_with model: @customer, method: :post do |f|%>
