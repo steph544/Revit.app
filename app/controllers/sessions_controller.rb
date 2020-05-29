@@ -15,10 +15,11 @@ class SessionsController < ApplicationController
 
         elsif @user && @user.authenticate(params[:password])
             session[:id] = @user.id
+            session[:current_user] = User.find(@user.id)
             redirect_to @user
         elsif @user == nil
-            #flash[:errors] = @user.errors.full_messages
-            redirect_to '/login'
+            flash.now[:error] = 'Wrong username or password'
+           redirect_to '/login'
         else
            redirect_to '/login'
         end
@@ -26,8 +27,9 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete(:id)
+        #session.delete(:current_user)
         redirect_to "/login"
-         byebug
+        # byebug
     end
 end
 

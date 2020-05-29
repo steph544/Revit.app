@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'bookeepings/index'
   #get '/sessions/new'
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
   resources :customers
   resources :users 
   resources :orders 
