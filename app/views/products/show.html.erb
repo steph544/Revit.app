@@ -118,7 +118,7 @@ Retail Price:
     <%if @product.customers.empty?%>
       <%="No Current Customers"%>
     <%else%>
-      <%@product.customers.each do |customer|%>
+      <%@product.customers.uniq.each do |customer|%>
       <%=link_to customer.full_name, customer_path(customer)%>
       <br>
       <%end%>

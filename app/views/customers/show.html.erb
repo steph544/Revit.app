@@ -139,7 +139,7 @@
     <%if @customer.purchases.empty?%>
       <%="No Current Products"%>
     <%else%>
-      <%@customer.products.each do |product| product.name %>
+      <%@customer.products.uniq.each do |product| product.name %>
       <%=link_to product.name, product_path(product)%>
       <br>
       <%end%>

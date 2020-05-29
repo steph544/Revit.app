@@ -112,7 +112,7 @@ Supplier Logo URL:
     <%if @supplier.customers.empty?%>
       <%="No Current Customers"%>
     <%else%>
-      <%@supplier.customers.each do |customer|%>
+      <%@supplier.customers.uniq.each do |customer|%>
       <%=link_to customer.full_name, customer_path(customer)%>
       <br>
       <%end%>
