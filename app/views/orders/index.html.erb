@@ -29,7 +29,8 @@
     <br>
         <%=f.collection_select :customer_id, @user.customers.uniq, :id, :first_name, {:prompt => "Select Customer"}%>
     <br>
-    PRODUCTS:
+    <p>
+    Products:
     <br> 
     <div class="form-check">
     <%=f.collection_check_boxes :product_ids, @products, :id, :name, class: 'form-check-input' %>

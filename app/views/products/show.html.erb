@@ -64,7 +64,7 @@ Name:
 <br><%=f.text_field :name%>
 <br>
 Supplier
-<br><%=f.collection_select :supplier_id, @suppliers, :id, :name%>
+<br><%=f.collection_select :supplier_id, @suppliers.uniq, :id, :name%>
 <br>
 Product Picture URL:
 <br><%=f.text_field :url%>
