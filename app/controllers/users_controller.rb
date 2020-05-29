@@ -40,9 +40,9 @@ class UsersController < ApplicationController
     def account 
     end 
 
-    def current_user 
-        @user = User.find(session[:id])
-    end 
+    # def current_user 
+    #     @user = User.find(session[:id])
+    # end 
 
     def destroy 
         @user.destroy 

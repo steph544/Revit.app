@@ -57,9 +57,9 @@ class CustomersController < ApplicationController
         @customer=Customer.find(params[:id])
     end 
 
-    def current_user 
-        @user = User.find(session[:id])
-    end 
+    # def current_user 
+    #     @user = User.find(session[:id])
+    # end 
 
     private 
     def require_login

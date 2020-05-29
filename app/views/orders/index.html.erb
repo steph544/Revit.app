@@ -1,4 +1,6 @@
 <div class="container">
+<div style="flex-grow: 3">
+</div>
 <div style="flex-grow: 1">
     <%=image_tag("ordersbutton.gif", height: "150px", width: "300px", :alt => "orders button") %> 
 <p> 
@@ -12,13 +14,13 @@
     <%end%>
 <p>
 </div>
-<div style="flex: 5 5 300px">
+<div style="flex: 5 5 600px">
 <div class="image_center_pic">
  <%=image_tag("ordernew.gif", height: "150px", width: "300px", :alt=>"New Order button")%>
 </div>
 </p>
 
-
+<p class="font">
 <%=form_with model: @order, method: :post do |f|%>
 
     <%=f.hidden_field :user_id, :value => session[:id]%>

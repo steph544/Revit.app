@@ -54,9 +54,9 @@ class SuppliersController < ApplicationController
         @supplier=Supplier.find(params[:id])
     end 
 
-    def current_user 
-        @user = User.find(session[:id])
-    end 
+    # def current_user 
+    #     @user = User.find(session[:id])
+    # end 
 
     def orders_list 
     end 

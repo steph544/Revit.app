@@ -85,8 +85,8 @@ class OrdersController < ApplicationController
         params.require(:order).permit(:user_id, :customer_id, :duedate, :paid, product_ids:[])
     end 
 
-    def current_user 
-        @user=User.find(session[:id])
-    end 
+    # def current_user 
+    #     @user=User.find(session[:id])
+    # end 
 
 end

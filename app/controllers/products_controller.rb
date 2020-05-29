@@ -59,9 +59,9 @@ class ProductsController < ApplicationController
         @product=Product.find(params[:id])
     end 
 
-    def current_user 
-        @user = User.find(session[:id])
-    end 
+    # def current_user 
+    #     @user = User.find(session[:id])
+    # end 
 
     def orders_list 
     end 
