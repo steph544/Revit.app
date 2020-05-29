@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])
 
         if params[:username] == " "
-           
             flash[:errors] = @user.errors.full_messages
             redirect_to '/login'
 
@@ -19,7 +18,7 @@ class SessionsController < ApplicationController
             session[:id] = @user.id
             redirect_to "/home"
         elsif @user == nil
-            #flash[:errors] = @user.errors.full_messages
+            # flash[:errors] = @user.errors.full_messages
             redirect_to '/login'
         else
            redirect_to '/login'

@@ -54,17 +54,6 @@
 		<a class="close" href="#">&times;</a>
 		<div class="content">
 
-    <%if flash[:errors]%>
-        <%flash[:errors].each do |e|%>
-          <%=e%>
-       <%end%>
-    <%end%>
-    <%if flash[:errors]%>
-      <%flash[:errors].each do |e|%>
-        <%=e%>
-      <%end%>
-    <%end%>
-
 <p class="form font">
 <%=form_with model: @customer do |f|%>
     First Name:
@@ -100,6 +89,13 @@
         <%=f.text_field :url %>
     <br>
     <%=f.submit%>
+  <%end%>
+  <br>
+  <%if flash[:errors]%>
+        <%flash[:errors].each do |e|%>
+          <%=e%>
+          <br>
+       <%end%>
   <%end%>
 
 		</div>

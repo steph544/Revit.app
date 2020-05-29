@@ -1,10 +1,6 @@
 <div class="font order_form">
 
-<%if flash[:errors]%>
-    <%flash[:errors].each do |e|%>
-        <%=e%>
-    <%end%>
-<%end%>
+
 <%=form_with model: @order, method: :patch do |f|%>
     <%=f.hidden_field :user_id, :value => session[:id]%>
 
@@ -25,4 +21,11 @@
     <%=f.text_field :paid%>
     <br>
 <%=f.submit "EDIT ORDER"%>
+<%end%>
+
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+        <br>
+    <%end%>
 <%end%>

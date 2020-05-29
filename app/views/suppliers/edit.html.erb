@@ -1,11 +1,3 @@
-
-<%if flash[:errors]%>
-    <%flash[:errors].each do |e|%>
-        <%=e%>
-    <%end%>
-<%end%>
-<p>
-
 <p class="font">
 <%=form_with model: @supplier, method: :patch do |f|%>
 Supplier Name:
@@ -23,5 +15,15 @@ Supplier Logo URL:
 <%=f.submit "Create New Supplier"%>
 <%end%>
 <p>
+
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+        <br>
+    <%end%>
+<%end%>
+<p>
+
+
 </div>
 </div>

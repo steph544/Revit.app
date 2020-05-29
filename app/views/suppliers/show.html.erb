@@ -47,12 +47,6 @@
 		<%=image_tag("supplierinfobutton.gif", height: "150px", width: "300px", :alt => "customers button") %> 
 		<a class="close" href="#">&times;</a>
 		<div class="content">
-        
-<%if flash[:errors]%>
-    <%flash[:errors].each do |e|%>
-        <%=e%>
-    <%end%>
-<%end%>
 
 <p class="font">
 <%=form_with model: @supplier, method: :patch do |f|%>
@@ -70,6 +64,14 @@ Supplier Logo URL:
 <br>
 <%=f.submit%>
 <%end%>
+<p>        
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+        <br>
+    <%end%>
+<%end%>
+
         </div>
     </div>
 </div>

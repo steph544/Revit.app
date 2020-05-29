@@ -136,11 +136,11 @@
 }
 
 .image_center_pic{
-  margin-left: 13%;
+  margin-left: 10%;
 }
 
 .show_center_pic{
-  margin-left: 25%;
+  margin-left: 15%;
 }
 
 .login_center_pic{
@@ -152,3 +152,4 @@
   password_field: 100%;
   width: 500px;
 }
+

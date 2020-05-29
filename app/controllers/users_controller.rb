@@ -17,7 +17,7 @@ class UsersController < ApplicationController
             redirect_to "/home"
         else
             flash[:errors] = @user.errors.full_messages
-            redirect_to "/"
+            redirect_to "/users/new?"
         end
     end
 
@@ -40,29 +40,11 @@ class UsersController < ApplicationController
     def account 
     end 
 
-    # def current_user 
-    #     @user = User.find(session[:id])
-    # end 
 
     def destroy 
         @user.destroy 
         redirect_to "/"
-      
-        #total_number_sales_per_order = @order.products.each do |p| 
-        #    p.name.count
-        #end 
-           
-        
-      #def total_amount_sales_per_order 
-        #total = 0 
-        #@product.orders.each do |order|
-       #          total += order.
-      
-          
-      #def cost_of_good_sold 
-     
-            
-           # profit
+ 
             
     end 
 

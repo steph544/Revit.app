@@ -27,7 +27,7 @@
 
     Choose Customer: 
     <br>
-        <%=f.collection_select :customer_id, @user.customers, :id, :first_name%>
+        <%=f.collection_select :customer_id, @user.customers.uniq, :id, :first_name%>
     <br>
     PRODUCTS:
     <br> 
@@ -49,6 +49,7 @@
 <%if flash[:errors]%>
     <%flash[:errors].each do |e|%>
         <%=e%>
+        <br>
     <%end%>
 <%end%>
 </div>

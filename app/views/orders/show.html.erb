@@ -68,11 +68,7 @@
 		<%=image_tag("customerinfobutton.gif", height: "150px", width: "300px", :alt => "customers button") %> 
 		<a class="close" href="#">&times;</a>
 		<div class="content">
-        <%if flash[:errors]%>
-    <%flash[:errors].each do |e|%>
-        <%=e%>
-    <%end%>
-<%end%>
+      
 
 <%=form_with model: @order do |f|%>
 
@@ -102,6 +98,7 @@
 <%if flash[:errors]%>
     <%flash[:errors].each do |e|%>
         <%=e%>
+        <br>
     <%end%>
 <%end%>
         </div>

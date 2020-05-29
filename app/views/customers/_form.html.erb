@@ -1,15 +1,4 @@
 
-<%if flash[:errors]%>
-    <%flash[:errors].each do |e|%>
-        <%=e%>
-    <%end%>
-<%end%>
-<%if flash[:errors]%>
-    <%flash[:errors].each do |e|%>
-        <%=e%>
-    <%end%>
-<%end%>
-
 <p class="form font">
 <%=form_with model: @customer do |f|%>
 First Name:
@@ -38,6 +27,15 @@ Profile Pic URL:
 <br>
 <%=f.submit%>
 <%end%>
+
+<p>
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+        <br>
+    <%end%>
+<%end%>
+
 
 		</div>
 	</div>
