@@ -6,6 +6,8 @@
       <%=image_tag("newaccount.gif", height: "150px", width: "300px", :alt=>"User info button")%>
     </div>
 <p>
+
+
   <%= form_with model: @user, url: '/register', method: :post do |f| %>
   <label>Name:
   <br/>
@@ -26,13 +28,10 @@
   <br/></label> <%= f.password_field :password_confirmation %><br><br>
   <%= f.submit "Create account" %>
 <% end %><br/><br/><br/><br/><br/><br/><br/><br/>
-
-<p>
-
+<br>
 <% if flash[:errors] %>
   <% flash[:errors].each do |e| %>
-    <ul><li style="font-size: 15px; text-align:left "><%= e %></li></ul>
-    <br>
+    <ul><li style="color: black; font-size: 15px; text-align:left "><%= e %></li></ul>
   <% end %>
 <% end %>
 </div>

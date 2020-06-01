@@ -44,13 +44,9 @@ class UsersController < ApplicationController
 
     def destroy 
         @user.destroy 
-<<<<<<< HEAD
         redirect_to "/"
  
             
-=======
-        redirect_to "/"    
->>>>>>> cee3f5dc5764efd0e00358afebf976e56e6f2893
     end 
 
     private
