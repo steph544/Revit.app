@@ -68,11 +68,7 @@
 		<%=image_tag("customerinfobutton.gif", height: "150px", width: "300px", :alt => "customers button") %> 
 		<a class="close" href="#">&times;</a>
 		<div class="content">
-        <%if flash[:errors]%>
-    <%flash[:errors].each do |e|%>
-        <%=e%>
-    <%end%>
-<%end%>
+      
 
 <%=form_with model: @order do |f|%>
 
@@ -80,12 +76,12 @@
 
     Choose Customer: 
     <br>
-        <%=f.collection_select :customer_id, @user.customers, :id, :first_name%>
+        <%=f.collection_select :customer_id, @user.customers.uniq, :id, :first_name%>
     <br>
     PRODUCTS:
     <br> 
     <div class="form-popup-check">
-    <%=f.collection_check_boxes :product_ids, @products, :id, :name, class: 'form-popup-check-input' %>
+    <%=f.collection_check_boxes :product_ids, @products.uniq, :id, :name, class: 'form-popup-check-input' %>
     </div>
     <p>
     Due Date: 
@@ -102,6 +98,7 @@
 <%if flash[:errors]%>
     <%flash[:errors].each do |e|%>
         <%=e%>
+        <br>
     <%end%>
 <%end%>
         </div>

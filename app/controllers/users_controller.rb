@@ -17,7 +17,7 @@ class UsersController < ApplicationController
             redirect_to "/home"
         else
             flash[:errors] = @user.errors.full_messages
-            redirect_to "/"
+            redirect_to "/users/new?"
         end
     end
 
@@ -41,13 +41,12 @@ class UsersController < ApplicationController
     def account 
     end 
 
-    def current_user 
-        @user = User.find(session[:id])
-    end 
 
     def destroy 
         @user.destroy 
-        redirect_to "/"    
+        redirect_to "/"
+ 
+            
     end 
 
     private

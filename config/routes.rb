@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   resources :suppliers 
   resources :products 
 
-  root "sessions#new"
+  root "users#welcome"
 
   get '/products/:id/orders', to: 'products#orders_list'
   get '/customers/:id/orders', to: 'customers#orders_list'
-  get 'home', to: 'users#welcome'
+  get '/home', to: 'users#welcome'
   get '/bookkeeping', to: 'users#bookkeeping'
   get '/account', to: 'users#account'
 

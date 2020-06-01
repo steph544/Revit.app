@@ -1,24 +1,8 @@
-# README
+# Revit Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Revit App is a CRM app to help with business operations, including client, product, supplier, and order management as well as book keeping. 
 
-Things you may want to cover:
+# Installation 
 
-* Ruby version
+Please make sure to run bundle install prior to using the app. 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

@@ -1,13 +1,6 @@
 
 <%=image_tag("newcustomer.gif", height: "150px", width: "300px", :alt=>"Login button")%>
 
-
-<%if flash[:errors]%>
-    <%flash[:errors].each do |e|%>
-        <%=e%>
-    <%end%>
-<%end%>
-
 <%=form_with model: @user do |f|%>
 First Name:<%=f.text_field :first_name%>
 <br>
@@ -19,5 +12,11 @@ Phone: <%=f.text_field :phone%>
 <br>
 <%=f.submit "New User"%>
 <%end%>
+<p>
 
-
+<%if flash[:errors]%>
+    <%flash[:errors].each do |e|%>
+        <%=e%>
+        <br>
+    <%end%>
+<%end%>

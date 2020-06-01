@@ -1,4 +1,8 @@
 <div class="container">
+<div>
+</div>
+<div style="flex-grow: 3">
+</div>
 <div style="flex-grow: 1">
     <%=image_tag("suppliersbutton.gif", height: "150px", width: "300px", :alt => "suppliers button") %> 
 <p>
@@ -34,6 +38,7 @@ Supplier Logo URL:
 <%if flash[:errors]%>
     <%flash[:errors].each do |e|%>
         <%=e%>
+        <br>
     <%end%>
 <%end%>
 

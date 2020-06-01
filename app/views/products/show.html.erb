@@ -64,7 +64,7 @@ Name:
 <br><%=f.text_field :name%>
 <br>
 Supplier
-<br><%=f.collection_select :supplier_id, @suppliers, :id, :name%>
+<br><%=f.collection_select :supplier_id, @suppliers.uniq, :id, :name%>
 <br>
 Product Picture URL:
 <br><%=f.text_field :url%>
@@ -118,7 +118,7 @@ Retail Price:
     <%if @product.customers.empty?%>
       <%="No Current Customers"%>
     <%else%>
-      <%@product.customers.each do |customer|%>
+      <%@product.customers.uniq.each do |customer|%>
       <%=link_to customer.full_name, customer_path(customer)%>
       <br>
       <%end%>

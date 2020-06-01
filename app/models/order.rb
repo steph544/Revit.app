@@ -4,6 +4,7 @@ class Order < ApplicationRecord
     has_many :suppliers, through: :products 
     belongs_to :customer, optional: true
     belongs_to :user, optional: true
+
     
     def total 
         self.products.each.sum do |product| product.retail_price end

@@ -1,4 +1,6 @@
 <div class="container">
+<div style="flex-grow: 3">
+</div>
 <div style="flex-grow: 1">
     <%=image_tag("productsbutton.gif", height: "150px", width: "300px", :alt => "products button") %> 
 <p>
@@ -21,7 +23,7 @@ Name:
 <br><%=f.text_field :name%>
 <br>
 Supplier
-<br><%=f.collection_select :supplier_id, @suppliers, :id, :name%>
+<br><%=f.collection_select :supplier_id, @suppliers, :id, :name , {:prompt => "Select Supplier"}%>
 <br>
 Product Picture URL:
 <br><%=f.text_field :url%>
@@ -39,6 +41,7 @@ Retail Price:
 <%if flash[:errors]%>
     <%flash[:errors].each do |e|%>
         <%=e%>
+        <br>
     <%end%>
 <%end%>
 <p>

@@ -1,9 +1,11 @@
 <div class="container">
+<div style="flex-grow: 3">
+</div>
 <div style="flex-grow: 1">
     <%=image_tag("customers.gif", height: "150px", width: "300px", :alt => "customers button") %> 
     <p>
     <%if !@user.customers.empty?%>
-        <%@user.customers.each do |customer|%>  
+        <%@user.customers.uniq.each do |customer|%>  
             <%=image_tag(customer.url, :class => "circular", :alt =>"customer profile picture")%>
             <%=link_to customer.full_name, customer_path(customer), class: 'link'%>
              <br>
@@ -51,6 +53,7 @@ Profile Pic URL:
 <%if flash[:errors]%>
     <%flash[:errors].each do |e|%>
         <%=e%>
+        <br>
     <%end%>
 <%end%>
 </p>

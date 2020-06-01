@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
         end
     end
 
+    
+
     private 
 
     def not_logged_in
